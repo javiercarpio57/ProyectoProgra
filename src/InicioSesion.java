@@ -2,6 +2,7 @@
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,9 +14,30 @@ public class InicioSesion extends javax.swing.JFrame {
     /**
      * Creates new form InicioSesion
      */
+    private ArrayList<String> correos;
+    private ArrayList<String> contrasena;
+    private ArrayList<String> nombres;
+    private ArrayList<String> apellidos;
+    private ArrayList<String> carnet;
+    public String nombre;
+    public String apellido;
+    public String carnets;
+    public String contras;
+    public String corr;
+    public String FuenteN;
+    public String FuenteA;
+    public String FuenteC;
+    public String FuenteCor;
+    
+    
     public InicioSesion() {
         
         initComponents();
+        nombres = new ArrayList<String>();
+        apellidos = new ArrayList<String>();
+        carnet = new ArrayList<String>();
+        contrasena = new ArrayList<String>();
+        correos = new ArrayList<String>();
         
     }
 
@@ -125,50 +147,62 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         NuevoAlumno nuevo = new NuevoAlumno();
+        nuevo.getArrayLists(nombres, apellidos, carnet, contrasena, correos);
         nuevo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnNuevoActionPerformed
     
-    
-    String carnet, contra;
-    int x = 0;
+    public void getInfo(ArrayList nom, ArrayList ape, ArrayList car, ArrayList contra, ArrayList cor){
+        nombres = nom;
+        apellidos = ape;
+        carnet = car;
+        contrasena = contra;
+        correos = cor;
+    }
+    String c, contra;
     
     public void verificarUsuarioContrasena(){
-        Connection conexion = Conexion.getConnection();
+        Fuente fuen = new Fuente();
+        Menu menu = new Menu();
+        
+        boolean control = false;
+        c = txtUsuario.getText();
+        contra = pssContrasena.getText();
         
         if(txtUsuario.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Su usuario es incorrecto");
+            control = false;
         } else if((pssContrasena.getText().isEmpty())){
-            JOptionPane.showMessageDialog(this, "Su contraseña es incorrecta");
+            control = false;
         } else{
-            try{
-                Statement estado = conexion.createStatement();
-                ResultSet resultado = estado.executeQuery("select *from usuarios where Carnet=" + txtUsuario.getText());
-                if (resultado.next() == true){
-                    carnet = resultado.getString("Carnet");
-                    contra = resultado.getString("password");
-                    if(!txtUsuario.getText().equals(carnet)){
-                        JOptionPane.showMessageDialog(this, "Su usuario no es correcto");
-                    } else if(!pssContrasena.getText().equals(contra)){
-                        JOptionPane.showMessageDialog(this, "Su contraseña no es correcta");
-                    } else if((txtUsuario.getText().equals(carnet)) && (pssContrasena.getText().equals(contra))){
-                        x = 1;
-                        
-                        String nombre = resultado.getString("Nombre");
-                        String apellido = resultado.getString("Apellido");
-                        int carne = Integer.parseInt(resultado.getString("Carnet"));
-                        
-                        //Principal prin = new Principal();
-                        //prin.setVisible(true);
-                        //this.setVisible(false);
-                        //prin.cambiar(nombre);
+            for(int i = 0; i < carnet.size(); i++){
+                
+                if(!carnet.isEmpty()){
+                    if((c.equals(carnet.get(i))) && (contra.equals(contrasena.get(i)))){
+                        control = true;
+                        FuenteN = nombres.get(i);
+                        FuenteA = apellidos.get(i);
+                        FuenteC = carnet.get(i);
+                        FuenteCor = correos.get(i);
+                        break;
                     }
-                } else{
-                    JOptionPane.showMessageDialog(this, "No se encontró el usuario");
-                }
-            } catch(Exception ex){
-                JOptionPane.showMessageDialog(this, "Se ha producido el siguiente error: "+ex.getMessage());
+                }else{
+                    control = false;
+                }                
             }
+        }
+        
+        if(nombres.isEmpty()){
+           control = false;
+        }
+        
+        if(control != false){
+            fuen.getDatos(FuenteN, FuenteA, FuenteC, FuenteCor);
+            Menu.lblUsuario.setText(FuenteN + " " + FuenteA);
+            Menu.lblCarnet.setText(FuenteC);
+            menu.setVisible(true);
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(this, "Ingrese correctamente sus datos");
         }
     }
     

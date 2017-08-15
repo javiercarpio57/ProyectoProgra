@@ -1,6 +1,7 @@
 
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,8 +13,27 @@ public class NuevoAlumno extends javax.swing.JFrame {
     /**
      * Creates new form NuevoAlumno
      */
+    private String nombre;
+    private String apellido;
+    private String carnet;
+    private String contra;
+    private String correo;
+    private int control;
+    private ArrayList<String> correos;
+    private ArrayList<String> contrasena;
+    private ArrayList<String> nombres;
+    private ArrayList<String> apellidos;
+    private ArrayList<String> carnets;
+    
     public NuevoAlumno() {
         initComponents();
+        control = 0;
+        nombres = new ArrayList<String>();
+        apellidos = new ArrayList<String>();
+        carnets = new ArrayList<String>();
+        contrasena = new ArrayList<String>();
+        correos = new ArrayList<String>();
+        
     }
 
     /**
@@ -139,29 +159,68 @@ public class NuevoAlumno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        Connection miconexion = Conexion.getConnection();
-        try{
-            Statement estado = miconexion.createStatement();
-            
-            String nombre = txtNombre.getText();
-            String apellido = txtApellido.getText();
-            int carne = Integer.parseInt(txtCarnet.getText());
-            String password = txtPassword.getText();
-            String correo = txtCorreo.getText();
-
-            estado.execute("Insert into usuarios values ('"+nombre+"','"+apellido+"','"+carne+"'"
-                + ",'"+password+"','"+correo+"')");
-            JOptionPane.showMessageDialog(this, "Registo agregado correctamente");
-            limpiarcajas();
-            
-            InicioSesion sesion = new InicioSesion();
-            sesion.setVisible(true);
+        InicioSesion inicio = new InicioSesion();
+        
+        
+        nombre = txtNombre.getText();
+        apellido = txtApellido.getText();
+        carnet = txtCarnet.getText();
+        contra = txtPassword.getText();
+        correo = txtCorreo.getText();
+        
+        if(!nombre.isEmpty()){
+            control = control + 1;
+        }else{
+            JOptionPane.showMessageDialog(this, "No ingreso ningun usuario.");
+        }
+        
+        if((!apellido.isEmpty())){
+            control = control + 1;
+        }else{
+            JOptionPane.showMessageDialog(this, "No ingreso ninguna contrasena");
+            control = 0;
+        }
+        
+        if((!carnet.isEmpty())){
+            control = control + 1;
+        }else{
+            JOptionPane.showMessageDialog(this, "No ingreso ningun numero de carnet");
+            control = 0;
+        }
+        
+        if((!contra.isEmpty())){
+            control = control + 1;
+        }else{
+            JOptionPane.showMessageDialog(this, "No ingreso ninguna contrasena");
+            control = 0;
+        }
+        
+        if((!correo.isEmpty())){
+            control = control + 1;
+        }else{
+            JOptionPane.showMessageDialog(this, "No ingreso ningun correo");
+            control = 0;
+        }
+        
+        if(control == 5){
+            nombres.add(nombre);
+            apellidos.add(apellido);
+            carnets.add(carnet);
+            contrasena.add(contra);
+            correos.add(correo);
+            inicio.getInfo(nombres, apellidos, carnets, contrasena, correos);
+            inicio.setVisible(true);
             this.setVisible(false);
-            
-        } catch(Exception ex){
-            JOptionPane.showMessageDialog(this, "Se ha producido el siguiente error: "+ex.getMessage());
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
+    
+    public void getArrayLists(ArrayList nom, ArrayList ape, ArrayList car, ArrayList contra, ArrayList cor){
+        nombres = nom;
+        apellidos = ape;
+        carnets = car;
+        contrasena = contra;
+        correos = cor;
+    }
     
     public void limpiarcajas(){
         txtNombre.setText("");
