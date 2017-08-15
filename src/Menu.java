@@ -8,6 +8,8 @@
  *
  * @author jose
  */
+import java.util.ArrayList;
+
 public class Menu extends javax.swing.JFrame {
 
     /**
@@ -18,13 +20,12 @@ public class Menu extends javax.swing.JFrame {
     public String apellido;
     public String carnet;
     public String correo;
+    public static ArrayList<String> x= new ArrayList<String>();
     
     public Menu() {
         
         initComponents();
-        nombre = lblUsuario.getText();
-        carnet = lblCarnet.getText();
-        System.out.println(nombre);
+        
     }
 
     /**
@@ -52,6 +53,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnVerRegistro.setText("Ver Registro de Asistencias");
+        btnVerRegistro.setPreferredSize(new java.awt.Dimension(113, 23));
         btnVerRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerRegistroActionPerformed(evt);
@@ -74,18 +76,18 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnVerRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(btnTomarAsistencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMandarExcusa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(137, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblCarnet)
                 .addGap(53, 53, 53))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnTomarAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVerRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMandarExcusa, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,13 +96,13 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsuario)
                     .addComponent(lblCarnet))
-                .addGap(30, 30, 30)
-                .addComponent(btnTomarAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(btnVerRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(btnMandarExcusa, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(btnTomarAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnVerRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnMandarExcusa, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
 
         pack();
@@ -108,21 +110,30 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnTomarAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTomarAsistenciaActionPerformed
         // TODO add your handling code here:
+        nombre = lblUsuario.getText();
+        carnet = lblCarnet.getText();
         Toma_Asistencia asis= new Toma_Asistencia();
         asis.setVisible(true);
         this.setVisible(false);
+        Toma_Asistencia.registro=x;
     }//GEN-LAST:event_btnTomarAsistenciaActionPerformed
 
     private void btnVerRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRegistroActionPerformed
+        nombre = lblUsuario.getText();
+        carnet = lblCarnet.getText();
         Ver_Registro registro=new Ver_Registro();
         registro.setVisible(true);
         this.setVisible(false);
+        registro.j=x;
+        
         
         
     }//GEN-LAST:event_btnVerRegistroActionPerformed
 
     private void btnMandarExcusaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMandarExcusaActionPerformed
         // TODO add your handling code here:
+        nombre = lblUsuario.getText();
+        carnet = lblCarnet.getText();
         Mansar_Excusa excusa=new Mansar_Excusa();
         excusa.setVisible(true);
         this.setVisible(false);

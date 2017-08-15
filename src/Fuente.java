@@ -47,12 +47,7 @@ public class Fuente {
         return correo;
     }
     
-    public void registro(String clase)
-    {
-        Ver_Registro c = new Ver_Registro();
-        c.j=clase;
     
-    }
     
     
     
