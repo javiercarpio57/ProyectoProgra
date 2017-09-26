@@ -1,1 +1,0 @@
-se abre CMD se mete a la carpeta donde se quiere guardar y "git clone direccion"

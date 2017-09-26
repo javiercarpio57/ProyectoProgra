@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,26 +9,18 @@
 
 /**
  *
- * @author jose
+ * @author javie
  */
-import java.util.ArrayList;
-
 public class Menu extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
      */
-    Fuente fuente = new Fuente();
-    public String nombre;
-    public String apellido;
-    public String carnet;
-    public String correo;
-    public static ArrayList<String> x= new ArrayList<String>();
-    
+    public static String NOMBRE;
+    public static ArrayList<Cursos> CURSO;
     public Menu() {
-        
         initComponents();
-        
+        CURSO = new ArrayList<Cursos>();
     }
 
     /**
@@ -37,108 +32,85 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnTomarAsistencia = new javax.swing.JButton();
-        btnVerRegistro = new javax.swing.JButton();
-        btnMandarExcusa = new javax.swing.JButton();
-        lblUsuario = new javax.swing.JLabel();
-        lblCarnet = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btnTomarAsistencia.setText("Tomar Asistencia");
-        btnTomarAsistencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTomarAsistenciaActionPerformed(evt);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
-        btnVerRegistro.setText("Ver Registro de Asistencias");
-        btnVerRegistro.setPreferredSize(new java.awt.Dimension(113, 23));
-        btnVerRegistro.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel1.setText("...");
+
+        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        jButton1.setText("Agregar asistencia");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerRegistroActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        btnMandarExcusa.setText("Mandar Excusa");
-        btnMandarExcusa.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        jButton2.setText("Ver registros");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMandarExcusaActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-
-        lblUsuario.setText("Nombre de Usuario");
-
-        lblCarnet.setText("Carnet");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblCarnet)
-                .addGap(53, 53, 53))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnTomarAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVerRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMandarExcusa, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(141, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(141, 141, 141))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsuario)
-                    .addComponent(lblCarnet))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(btnTomarAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnVerRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnMandarExcusa, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+                .addComponent(jLabel1)
+                .addGap(143, 143, 143)
+                .addComponent(jButton1)
+                .addGap(147, 147, 147)
+                .addComponent(jButton2)
+                .addContainerGap(200, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTomarAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTomarAsistenciaActionPerformed
-        // TODO add your handling code here:
-        nombre = lblUsuario.getText();
-        carnet = lblCarnet.getText();
-        Toma_Asistencia asis= new Toma_Asistencia();
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        jLabel1.setText(NOMBRE);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        NuevaAsistencia asis = new NuevaAsistencia();
+        asis.SetLista(CURSO);
         asis.setVisible(true);
         this.setVisible(false);
-        Toma_Asistencia.registro=x;
-    }//GEN-LAST:event_btnTomarAsistenciaActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnVerRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRegistroActionPerformed
-        nombre = lblUsuario.getText();
-        carnet = lblCarnet.getText();
-        Ver_Registro registro=new Ver_Registro();
-        registro.setVisible(true);
-        this.setVisible(false);
-        registro.j=x;
-        
-        
-        
-    }//GEN-LAST:event_btnVerRegistroActionPerformed
-
-    private void btnMandarExcusaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMandarExcusaActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        nombre = lblUsuario.getText();
-        carnet = lblCarnet.getText();
-        Mansar_Excusa excusa=new Mansar_Excusa();
-        excusa.setVisible(true);
+        VerRegistro reg = new VerRegistro();
+        reg.nombre=NOMBRE;
+        reg.Curso=CURSO;
+        reg.setVisible(true);
         this.setVisible(false);
-        
-    }//GEN-LAST:event_btnMandarExcusaActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,10 +148,8 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMandarExcusa;
-    private javax.swing.JButton btnTomarAsistencia;
-    private javax.swing.JButton btnVerRegistro;
-    public static javax.swing.JLabel lblCarnet;
-    public static javax.swing.JLabel lblUsuario;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
