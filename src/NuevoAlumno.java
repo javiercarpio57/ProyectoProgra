@@ -1,7 +1,11 @@
 
-import java.sql.Connection;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 /**
  *
@@ -12,8 +16,12 @@ public class NuevoAlumno extends javax.swing.JFrame {
     /**
      * Creates new form NuevoAlumno
      */
+
+    private ArrayList<Alumnos> Alumno;
+    
     public NuevoAlumno() {
         initComponents();
+        Alumno = new ArrayList<Alumnos>();
     }
 
     /**
@@ -25,150 +33,110 @@ public class NuevoAlumno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtCorreo = new javax.swing.JTextField();
-        lblContacto = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        btnAgregar = new javax.swing.JButton();
-        txtApellido = new javax.swing.JTextField();
-        txtCarnet = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
-        lblPuesto = new javax.swing.JLabel();
-        lblApellidos = new javax.swing.JLabel();
-        lblNombres = new javax.swing.JLabel();
-        lblCodigo = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtCorreo.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-
-        lblContacto.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        lblContacto.setText("Correo");
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
-        jLabel1.setText("Nuevo Usuario");
-
-        btnAgregar.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        btnAgregar.setText("Agregar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        txtApellido.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 
-        txtCarnet.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 
-        txtPassword.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jTextField3.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 
-        lblPuesto.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        lblPuesto.setText("Apellido");
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel1.setText("Nombre");
 
-        lblApellidos.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        lblApellidos.setText("Password");
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel2.setText("Carnet");
 
-        lblNombres.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        lblNombres.setText("Carnet");
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel3.setText("Contrasena");
 
-        lblCodigo.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        lblCodigo.setText("Nombre");
+        jTextField4.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 
-        txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel4.setText("Apellido");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCodigo)
-                    .addComponent(lblPuesto)
-                    .addComponent(lblNombres)
-                    .addComponent(lblApellidos)
-                    .addComponent(lblContacto))
-                .addGap(79, 79, 79)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109))
+                .addComponent(jButton1)
+                .addGap(85, 85, 85))
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(jLabel1)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addGap(89, 89, 89)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel4)))
+                .addGap(87, 87, 87)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(jLabel1)
-                .addGap(137, 137, 137)
+                .addGap(124, 124, 124)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCodigo))
-                .addGap(45, 45, 45)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPuesto))
-                .addGap(45, 45, 45)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombres)
-                    .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblApellidos)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblContacto)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(195, 195, 195)
-                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(343, Short.MAX_VALUE))
+                .addComponent(jButton1)
+                .addGap(95, 95, 95))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        Connection miconexion = Conexion.getConnection();
-        try{
-            Statement estado = miconexion.createStatement();
-            
-            String nombre = txtNombre.getText();
-            String apellido = txtApellido.getText();
-            int carne = Integer.parseInt(txtCarnet.getText());
-            String password = txtPassword.getText();
-            String correo = txtCorreo.getText();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Alumnos alum = new Alumnos(jTextField1.getText(), jTextField4.getText(), jTextField2.getText(), jTextField3.getText());
+        InicioSesion inicio = new InicioSesion();
+        
+        Alumno.add(alum);
+        InicioSesion.alumno = (Alumno);
+        inicio.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-            estado.execute("Insert into usuarios values ('"+nombre+"','"+apellido+"','"+carne+"'"
-                + ",'"+password+"','"+correo+"')");
-            JOptionPane.showMessageDialog(this, "Registo agregado correctamente");
-            limpiarcajas();
-            
-            InicioSesion sesion = new InicioSesion();
-            sesion.setVisible(true);
-            this.setVisible(false);
-            
-        } catch(Exception ex){
-            JOptionPane.showMessageDialog(this, "Se ha producido el siguiente error: "+ex.getMessage());
-        }
-    }//GEN-LAST:event_btnAgregarActionPerformed
-    
-    public void limpiarcajas(){
-        txtNombre.setText("");
-        txtApellido.setText("");
-        txtCarnet.setText("");
-        txtPassword.setText("");
-        txtCorreo.setText("");
+    public void setLista(ArrayList list){
+        Alumno = list;
     }
     
     /**
@@ -207,17 +175,14 @@ public class NuevoAlumno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblApellidos;
-    private javax.swing.JLabel lblCodigo;
-    private javax.swing.JLabel lblContacto;
-    private javax.swing.JLabel lblNombres;
-    private javax.swing.JLabel lblPuesto;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtCarnet;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

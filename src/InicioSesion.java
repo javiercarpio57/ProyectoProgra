@@ -1,8 +1,12 @@
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 /**
  *
@@ -13,10 +17,11 @@ public class InicioSesion extends javax.swing.JFrame {
     /**
      * Creates new form InicioSesion
      */
+    
+    public static ArrayList<Alumnos> alumno;
     public InicioSesion() {
-        
         initComponents();
-        
+        alumno = new ArrayList<Alumnos>();
     }
 
     /**
@@ -28,43 +33,51 @@ public class InicioSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtUsuario = new javax.swing.JTextField();
-        btnSeguir = new javax.swing.JButton();
-        pssContrasena = new javax.swing.JPasswordField();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        btnNuevo = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        txtUsuario.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txtUsuario.setName("txtUsuario"); // NOI18N
-
-        btnSeguir.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        btnSeguir.setText("Continuar");
-        btnSeguir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeguirActionPerformed(evt);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
-        pssContrasena.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 70)); // NOI18N
-        jLabel1.setText("UVQR");
+        jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel2.setText("No. de carnet");
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel1.setText("Contrasena");
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel3.setText("Contraseña");
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel2.setText("Carnet");
 
-        btnNuevo.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        btnNuevo.setText("¿Eres nuevo?");
-        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
+        jButton1.setText("Siguiente");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoActionPerformed(evt);
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
+        jButton2.setText("Nuevo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -72,106 +85,97 @@ public class InicioSesion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(132, 132, 132)
-                        .addComponent(pssContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addComponent(jLabel1)))
-                .addContainerGap(124, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(172, 172, 172)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(164, 164, 164))
+                .addComponent(jLabel1)
+                .addGap(137, 137, 137))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(115, 115, 115)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(135, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSeguir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(76, 76, 76))
+                .addComponent(jButton3)
+                .addGap(104, 104, 104))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(308, 308, 308)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
+                .addGap(232, 232, 232)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtUsuario)
-                    .addComponent(pssContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
-                .addGap(103, 103, 103)
-                .addComponent(btnSeguir)
-                .addGap(73, 73, 73)
-                .addComponent(btnNuevo)
-                .addGap(167, 167, 167))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(153, 153, 153)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSeguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeguirActionPerformed
-        verificarUsuarioContrasena();
-    }//GEN-LAST:event_btnSeguirActionPerformed
-
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         NuevoAlumno nuevo = new NuevoAlumno();
+        nuevo.setLista(alumno);
         nuevo.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnNuevoActionPerformed
-    
-    
-    String carnet, contra;
-    int x = 0;
-    
-    public void verificarUsuarioContrasena(){
-        Connection conexion = Conexion.getConnection();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String cadena = "";
         
-        if(txtUsuario.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Su usuario es incorrecto");
-        } else if((pssContrasena.getText().isEmpty())){
-            JOptionPane.showMessageDialog(this, "Su contraseña es incorrecta");
-        } else{
-            try{
-                Statement estado = conexion.createStatement();
-                ResultSet resultado = estado.executeQuery("select *from usuarios where Carnet=" + txtUsuario.getText());
-                if (resultado.next() == true){
-                    carnet = resultado.getString("Carnet");
-                    contra = resultado.getString("password");
-                    if(!txtUsuario.getText().equals(carnet)){
-                        JOptionPane.showMessageDialog(this, "Su usuario no es correcto");
-                    } else if(!pssContrasena.getText().equals(contra)){
-                        JOptionPane.showMessageDialog(this, "Su contraseña no es correcta");
-                    } else if((txtUsuario.getText().equals(carnet)) && (pssContrasena.getText().equals(contra))){
-                        x = 1;
-                        
-                        String nombre = resultado.getString("Nombre");
-                        String apellido = resultado.getString("Apellido");
-                        int carne = Integer.parseInt(resultado.getString("Carnet"));
-                        
-                        //Principal prin = new Principal();
-                        //prin.setVisible(true);
-                        //this.setVisible(false);
-                        //prin.cambiar(nombre);
-                    }
-                } else{
-                    JOptionPane.showMessageDialog(this, "No se encontró el usuario");
-                }
-            } catch(Exception ex){
-                JOptionPane.showMessageDialog(this, "Se ha producido el siguiente error: "+ex.getMessage());
-            }
+        for(Alumnos x: alumno){
+            cadena += x.toStringNAC() + "\n";
         }
-    }
-    
+        
+        System.out.println(cadena);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Menu menu = new Menu();
+        
+        
+        for(Alumnos j: alumno){
+            if((j.getCarnet().equals(jTextField1.getText())) && (j.getContrasena().equals(jTextField2.getText()))){
+                Menu.NOMBRE = j.toStringNA();
+                menu.setVisible(true);
+                this.setVisible(false);
+                
+                
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Error 101. Ingrese correctamente los datos.");
+
+            
+            }
+           
+        }
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        jButton3.setVisible(false);
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -208,12 +212,12 @@ public class InicioSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnNuevo;
-    private javax.swing.JButton btnSeguir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField pssContrasena;
-    private javax.swing.JTextField txtUsuario;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
