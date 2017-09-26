@@ -150,8 +150,10 @@ public class InicioSesion extends javax.swing.JFrame {
         Menu menu = new Menu();
         
         
-        for(Alumnos j: alumno){
-            if((j.getCarnet().equals(jTextField1.getText())) && (j.getContrasena().equals(jTextField2.getText()))){
+        for(Alumnos j: alumno)
+        {
+            if((j.getCarnet().equals(jTextField1.getText())) && (j.getContrasena().equals(jTextField2.getText())))
+            {
                 Menu.NOMBRE = j.toStringNA();
                 menu.setVisible(true);
                 this.setVisible(false);
@@ -173,6 +175,9 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        VistaProfesor vp= new VistaProfesor();
+        vp.setVisible(true);
+        vp.setLocation(850,0);
         jButton3.setVisible(false);
     }//GEN-LAST:event_formWindowOpened
 
