@@ -1,5 +1,8 @@
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,29 +19,18 @@ public class NuevaAsistencia extends javax.swing.JFrame {
     /**
      * Creates new form NuevaAsistencia
      */
-    private String cursos[];
-    private Integer CantAsistencia[];
     private ArrayList<Cursos> Curso;
-    Cursos aa;
-    int ran, c = 0, f = 0, poo = 0, al = 0, e = 0;
+    private ArrayList<Asistencia> asistencia;
+    public static ArrayList<Alumnos> ALUMNOS;
+    private Date myDate = new Date();
+    Cursos clases;
+    Asistencia asis;
+    String nombre;
     public NuevaAsistencia() {
         initComponents();
-        Curso = new ArrayList<Cursos>();
-        CantAsistencia = new Integer[5];
-        cursos = new String[5];
-        
-        cursos[0] = "Calculo 1";
-        cursos[1] = "Fisica 1";
-        cursos[2] = "Programacion orientada a Objetos";
-        cursos[3] = "Algebra Lineal 1";
-        cursos[4] = "Estadistica 1";
-        
-        CantAsistencia[0] = 0;
-        CantAsistencia[1] = 0;
-        CantAsistencia[2] = 0;
-        CantAsistencia[3] = 0;
-        CantAsistencia[4] = 0;
-        
+        Curso = new ArrayList<>();
+        asistencia = new ArrayList<>();
+        ALUMNOS = new ArrayList<>();
     }
 
     /**
@@ -51,7 +43,6 @@ public class NuevaAsistencia extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -66,9 +57,6 @@ public class NuevaAsistencia extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
         jLabel1.setText("Ha tomado la asistencia de: ");
-
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
-        jLabel2.setText("...");
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
         jButton1.setText("Tomar asistencia");
@@ -94,7 +82,7 @@ public class NuevaAsistencia extends javax.swing.JFrame {
         });
 
         cmbClases.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
-        cmbClases.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Programacion Orientada a Objetos", "Calculo 1", "Fisica 1", " " }));
+        cmbClases.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Programacion Orientada a Objetos", "Calculo 1", "Fisica 1" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,9 +93,6 @@ public class NuevaAsistencia extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
                         .addComponent(jButton2)))
@@ -129,9 +114,7 @@ public class NuevaAsistencia extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(122, 122, 122)
                 .addComponent(jLabel1)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(94, 94, 94)
                 .addComponent(cmbClases, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -148,59 +131,36 @@ public class NuevaAsistencia extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         String clase = (String) cmbClases.getSelectedItem();
+        String fecha = new SimpleDateFormat("dd-MM-yyyy").format(myDate);
         
-        
-        /*ran = (int)(Math.random()*4 + 0);
-        int c = 0;
-        int f = 0;
-        int poo = 0;
-        int al = 0;
-        int e = 0;
-        
-        switch(ran){
-            case 0:
-                c += 1;
-                jLabel2.setText(cursos[0]);
-                aa = new Cursos(cursos[0], "Ronald Curtiss", "A - 109");
-                Curso.add(aa);
-                CantAsistencia[0] = c;
-                break;
-            case 1:
-                f += 1;
-                jLabel2.setText(cursos[1]);
-                aa = new Cursos(cursos[1], "Magda Moscoso", "A - 302");
-                Curso.add(aa);
-                CantAsistencia[1] = f;
-                break;
-            case 2:
-                poo += 1;
-                jLabel2.setText(cursos[2]);
-                aa = new Cursos(cursos[2], "Douglas Barrios", "A - 303");
-                Curso.add(aa);
-                CantAsistencia[2] = poo;
-                break;
-            case 3:
-                al += 1;
-                jLabel2.setText(cursos[3]);
-                aa = new Cursos(cursos[3], "Nancy Zurita", "H - 301");
-                Curso.add(aa);
-                CantAsistencia[3] = al;
-                break;
-            case 4:
-                e += 1;
-                jLabel2.setText(cursos[4]);
-                aa = new Cursos(cursos[4], "Denise Pemueller", "A - 201");
-                Curso.add(aa);
-                CantAsistencia[4] = e;
-                break;
-                
+        if(clase.equals("Programacion Orientada a Objetos")){
+            clases = new Cursos("Programacion Orientada a Objetos", "Douglas Barrios", "A - 303", nombre);
+            Curso.add(clases);
+            asis = new Asistencia(nombre, "Programacion Orientada a Objetos", "Douglas Barrios", fecha);
+            asistencia.add(asis);
+        }else if(clase.equals("Calculo 1")){
+            clases = new Cursos("Calculo 1", "Ronald Curtiss", "A - 109", nombre);
+            Curso.add(clases);
+            asis = new Asistencia(nombre, "Calculo 1", "Ronald Curtiss", fecha);
+            asistencia.add(asis);
+        }else if(clase.equals("Fisica 1")){
+            clases = new Cursos("Fisica 1", "Magda Moscoso", "A - 302", nombre);
+            Curso.add(clases);
+            asis = new Asistencia(nombre, "Fisica 1", "Magda Moscoso", fecha);
+            asistencia.add(asis);
         }
         
         
-        */
         
         
         
+        Menu menu = new Menu();
+        
+        Menu.CURSO = (Curso);
+        Menu.ASISTENCIA = (asistencia);
+        Menu.ALUMNOS = ALUMNOS;
+        menu.setVisible(true);
+        this.setVisible(false);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -213,20 +173,21 @@ public class NuevaAsistencia extends javax.swing.JFrame {
         
         System.out.println(cadena);
         
-        for(int i = 0; i <CantAsistencia.length; i++){
-            System.out.println(CantAsistencia[i]);
-        }
         
     }//GEN-LAST:event_jButton2ActionPerformed
     
-    public void SetLista(ArrayList c){
+    public void SetLista(ArrayList c, ArrayList a){
         Curso = c;
+        asistencia = a;
     }
-    
+    public void setNombre(String Nombre){
+        nombre = Nombre;
+    }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Menu menu = new Menu();
         
         Menu.CURSO = (Curso);
+        Menu.ASISTENCIA = (asistencia);
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -277,6 +238,5 @@ public class NuevaAsistencia extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -41,7 +41,7 @@ public class Alumnos {
     
     public String toStringNAC() {
         String cadena;
-        cadena = (nombre + " " + apellido + " - " + carnet);
+        cadena = "ALUMNO: " + (nombre + " " + apellido + " - " + carnet);
         return cadena;
     }
     

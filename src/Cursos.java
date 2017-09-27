@@ -18,18 +18,19 @@ public class Cursos {
     private String maestro;
     private String salon;
     private String fecha;    
+    private String alumno;
     private Date myDate = new Date();
     
     public Cursos(){
         
     }
     
-    public Cursos(String cursito, String Maestro, String Salon){
+    public Cursos(String cursito, String Maestro, String Salon, String nom){
         curso = cursito;
         maestro = Maestro;
         salon = Salon;
         fecha=new SimpleDateFormat("dd-MM-yyyy").format(myDate);
-        
+        alumno = nom;
     }
     
     public String getCurso(){
@@ -40,11 +41,18 @@ public class Cursos {
     public String toString() {
         String cadena;
         
-        cadena = (curso + " " + salon+" "+"<html><b><u> Fecha de asistencia "+fecha+"</u></b>");
+        cadena = "CURSOS: " + (curso + " " + salon+" "+ fecha);
         return cadena;
     }
     
-    public ArrayList crearCursos(ArrayList<Cursos> curso){
+    public String getMaestro(){
+        return maestro;
+    }
+    
+    public String getAlumno(){
+        return alumno;
+    }
+    /*public ArrayList crearCursos(ArrayList<Cursos> curso){
         Cursos cur = null;
         
         cur = new Cursos("Programacion Orientada a Objetos", "Douglas Barrios", "A - 302");
@@ -60,6 +68,6 @@ public class Cursos {
         return curso;
         
         
-    }
+    }*/
     
 }

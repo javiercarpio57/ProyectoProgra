@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -19,9 +18,13 @@ public class InicioSesion extends javax.swing.JFrame {
      */
     
     public static ArrayList<Alumnos> alumno;
+    public static ArrayList<Cursos> CURSO;
+    public static ArrayList<Asistencia> ASISTENCIA;
     public InicioSesion() {
         initComponents();
-        alumno = new ArrayList<Alumnos>();
+        alumno = new ArrayList<>();
+        CURSO = new ArrayList<>();
+        ASISTENCIA = new ArrayList<>();
     }
 
     /**
@@ -131,6 +134,8 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         NuevoAlumno nuevo = new NuevoAlumno();
+        NuevoAlumno.ASISTENCIA = ASISTENCIA;
+        NuevoAlumno.CURSO = CURSO;
         nuevo.setLista(alumno);
         nuevo.setVisible(true);
         this.setVisible(false);
@@ -155,6 +160,9 @@ public class InicioSesion extends javax.swing.JFrame {
             if((j.getCarnet().equals(jTextField1.getText())) && (j.getContrasena().equals(jTextField2.getText())))
             {
                 Menu.NOMBRE = j.toStringNA();
+                Menu.ALUMNOS = alumno;
+                Menu.ASISTENCIA = ASISTENCIA;
+                Menu.CURSO = CURSO;
                 menu.setVisible(true);
                 this.setVisible(false);
                 

@@ -18,9 +18,14 @@ public class Menu extends javax.swing.JFrame {
      */
     public static String NOMBRE;
     public static ArrayList<Cursos> CURSO;
+    public static ArrayList<Asistencia> ASISTENCIA;
+    public static ArrayList<Alumnos> ALUMNOS;
+    
     public Menu() {
         initComponents();
-        CURSO = new ArrayList<Cursos>();
+        CURSO = new ArrayList<>();
+        ASISTENCIA = new ArrayList<>();
+        ALUMNOS = new ArrayList<>();
     }
 
     /**
@@ -35,6 +40,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -62,6 +68,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        jButton3.setText("Cerrar sesion");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,7 +88,8 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(141, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(141, 141, 141))
         );
         layout.setVerticalGroup(
@@ -84,9 +99,11 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(143, 143, 143)
                 .addComponent(jButton1)
-                .addGap(147, 147, 147)
+                .addGap(70, 70, 70)
                 .addComponent(jButton2)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addComponent(jButton3)
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         pack();
@@ -94,23 +111,58 @@ public class Menu extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         jLabel1.setText(NOMBRE);
+        
+        String cadena = "";
+        for(Cursos j: CURSO){
+            cadena += j.toString() + "\n";
+        }
+        System.out.println(cadena);
+        
+        String cadena1 = "";
+        for(Asistencia a: ASISTENCIA){
+            cadena1 += a.toString() + "\n";
+        }
+        System.out.println(cadena1);
+        
+        String cadena2 = "";
+        for(Alumnos b: ALUMNOS){
+            cadena2 += b.toStringNAC() + "\n";
+        }
+        System.out.println(cadena2);
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         NuevaAsistencia asis = new NuevaAsistencia();
-        asis.SetLista(CURSO);
+        asis.SetLista(CURSO, ASISTENCIA);
+        NuevaAsistencia.ALUMNOS = ALUMNOS;
         asis.setVisible(true);
+        asis.setNombre(NOMBRE);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         VerRegistro reg = new VerRegistro();
-        reg.nombre=NOMBRE;
-        reg.Curso=CURSO;
+        VerRegistro.nombre=NOMBRE;
+        VerRegistro.Curso=CURSO;
+        VerRegistro.Alumno = ALUMNOS;
+        VerRegistro.Asistencia = ASISTENCIA;
         reg.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        InicioSesion inicio = new InicioSesion();
+        
+        InicioSesion.ASISTENCIA = ASISTENCIA;
+        InicioSesion.CURSO = CURSO;
+        InicioSesion.alumno = ALUMNOS;
+        
+        inicio.setVisible(true);
+        this.setVisible(false);
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,6 +202,7 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

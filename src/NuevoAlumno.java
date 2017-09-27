@@ -1,11 +1,6 @@
 
 import java.util.ArrayList;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,10 +13,10 @@ public class NuevoAlumno extends javax.swing.JFrame {
      */
 
     private ArrayList<Alumnos> Alumno;
-    
+    public static ArrayList<Cursos> CURSO = new ArrayList<>();
+    public static ArrayList<Asistencia> ASISTENCIA = new ArrayList<>();;
     public NuevoAlumno() {
         initComponents();
-        Alumno = new ArrayList<Alumnos>();
     }
 
     /**
@@ -125,13 +120,22 @@ public class NuevoAlumno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Alumnos alum = new Alumnos(jTextField1.getText(), jTextField4.getText(), jTextField2.getText(), jTextField3.getText());
-        InicioSesion inicio = new InicioSesion();
         
-        Alumno.add(alum);
-        InicioSesion.alumno = (Alumno);
-        inicio.setVisible(true);
-        this.setVisible(false);
+        if((jTextField1.getText().equals("")) || (jTextField2.getText().equals("")) || (jTextField3.getText().equals("")) || (jTextField4.getText().equals(""))){
+            JOptionPane.showMessageDialog(this, "Llene todos los campos.");
+        }else{
+            Alumnos alum = new Alumnos(jTextField1.getText(), jTextField4.getText(), jTextField2.getText(), jTextField3.getText());
+            InicioSesion inicio = new InicioSesion();
+        
+            Alumno.add(alum);
+            InicioSesion.alumno = (Alumno);
+            InicioSesion.ASISTENCIA = (ASISTENCIA);
+            InicioSesion.CURSO = (CURSO);
+            inicio.setVisible(true);
+            this.setVisible(false);
+        }
+        
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -12,10 +12,14 @@ public class Asistencia {
     
     private String nombre;
     private String curso;
+    private String maestro;
+    private String fecha;
     
-    public Asistencia(String Nombre, String Curso){
+    public Asistencia(String Nombre, String Curso, String Maestro, String Fecha){
         nombre = Nombre;
         curso = Curso;
+        maestro = Maestro;
+        fecha = Fecha;
         
     }
     
@@ -26,4 +30,19 @@ public class Asistencia {
     public String getCurso(){
         return curso;
     }
+    
+    public String getMaestro(){
+        return maestro;
+    }
+    
+    public String getFecha(){
+        return maestro;
+    }
+
+    @Override
+    public String toString() {
+        return "ASISTENCIA: " + "Nombre: " + nombre + ", curso: " + curso + ", maestro: " + maestro + ", fecha: " + fecha;
+    }
+    
+    
 }
