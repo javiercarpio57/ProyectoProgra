@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,50 +16,88 @@ public class Profesor
     
     private String nombre;
 	private String contrasena;
-	private String apellido;
+	
 	private String carnet;
 	private String curso;
 	
+        public Profesor()
+        {}
 	/**
      * Constructor for objects of class Catedratico con parametros sus atributos.
      */
-	public Profesor(String nombre, String contrasena, String apellido, String carnet, String curso) 
+	public Profesor(String nombre, String contrasena, String carnet, String curso) 
         {
 		this.nombre = nombre;
 		this.contrasena = contrasena;
-		this.apellido = apellido;
+		
 		this.carnet = carnet;
 		this.curso = curso;
 	}
 	/**
      * @return String el nombre del catedratico
      */
-	public String getNombre() {
+	public String getNombre() 
+        {
 		return nombre;
 	}
 	/**
      * @return String la contrasena del catedratico
      */
-	public String getContrasena() {
+	public String getContrasena() 
+        {
 		return contrasena;
 	}
 	/**
-     * @return String el apellido del catedratico
-     */
-	public String getApellido() {
-		return apellido;
-	}
+     
 	/**
      * @return String el carnet del catedratico
      */
-	public String getCarnet() {
+	public String getCarnet() 
+        {
 		return carnet;
 	}
 	/**
      * @return String el curso del catedratico
      */
-	public String getCurso() {
+	public String getCurso() 
+        {
 		return curso;
 	}
+        
+        public ArrayList<Profesor> crearProfesor(ArrayList<Profesor> x)
+        {
+            Profesor poo= new Profesor( "Douglas Barrios","contrasena","17","Programacion Orientada a Objetos");
+            x.add(poo);
+            
+            Profesor calc= new Profesor( "Ronald Curtiss","contrasena","18","Calculo 1");
+            x.add(calc);
+            
+            Profesor fis= new Profesor( "Magda Moscoso","contrasena","19","Fisica 1");
+            x.add(fis);
+            
+            return x;
+        
+        }
+        
+        public boolean IngresarSesion(String usuario, String contra,ArrayList<Profesor> x )
+        {
+            boolean respuesta=false;
+            for (Profesor i:x) 
+            {
+                if (i.getCarnet().equals(usuario)) 
+                {
+                    if (i.getContrasena().equals(contra)) 
+                    {
+                        respuesta=true;
+                        
+                    }
+                    
+                }
+                
+            }
+            
+            return respuesta;
+        
+        }
     
 }
