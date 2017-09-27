@@ -184,8 +184,12 @@ public class InicioSesion extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         VistaProfesor vp= new VistaProfesor();
+        Asistencia x=new Asistencia();
+        ASISTENCIA.add(x);
+        vp.asistenciaP=ASISTENCIA;
+        
         vp.setVisible(true);
-        vp.setLocation(850,0);
+        vp.setLocation(750,0);
         jButton3.setVisible(false);
     }//GEN-LAST:event_formWindowOpened
 

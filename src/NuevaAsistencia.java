@@ -20,7 +20,7 @@ public class NuevaAsistencia extends javax.swing.JFrame {
      * Creates new form NuevaAsistencia
      */
     private ArrayList<Cursos> Curso;
-    private ArrayList<Asistencia> asistencia;
+    public static ArrayList<Asistencia> asistencia;
     public static ArrayList<Alumnos> ALUMNOS;
     private Date myDate = new Date();
     Cursos clases;
@@ -150,9 +150,13 @@ public class NuevaAsistencia extends javax.swing.JFrame {
             asistencia.add(asis);
         }
         
+        VistaProfesor j =new VistaProfesor();
         
+        j.asistenciaP=asistencia;
+        j.setLista(asistencia);
         
-        
+        j.setVisible(false);
+        j.setVisible(true);
         
         Menu menu = new Menu();
         

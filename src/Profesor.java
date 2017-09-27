@@ -79,7 +79,7 @@ public class Profesor
         
         }
         
-        public boolean IngresarSesion(String usuario, String contra,ArrayList<Profesor> x )
+        public boolean IngresarSesion(String usuario, String contra,ArrayList<Profesor> x)
         {
             boolean respuesta=false;
             for (Profesor i:x) 
@@ -89,6 +89,8 @@ public class Profesor
                     if (i.getContrasena().equals(contra)) 
                     {
                         respuesta=true;
+                        VistaProfesor j= new VistaProfesor();
+                        j.curso=i.getCurso();
                         
                     }
                     
@@ -100,4 +102,29 @@ public class Profesor
         
         }
     
+        public String RegistroGeneral(ArrayList<Asistencia> x,String curso )
+        {
+            String concatenar="";
+            
+            if (x.size()==0) 
+            {
+                System.out.println("Esta sin nada");
+                
+            }
+            
+            for(Asistencia i:x)
+            {
+                if (i.getCurso().equals(curso)) 
+                {
+                    concatenar+=i.toString();
+                    
+                }
+            
+            }
+            
+            
+            
+            return concatenar;
+        
+        }
 }

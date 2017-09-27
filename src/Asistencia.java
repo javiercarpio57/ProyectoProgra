@@ -15,6 +15,8 @@ public class Asistencia {
     private String maestro;
     private String fecha;
     
+    public Asistencia()
+    {}
     public Asistencia(String Nombre, String Curso, String Maestro, String Fecha){
         nombre = Nombre;
         curso = Curso;
