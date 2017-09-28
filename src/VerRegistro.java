@@ -14,6 +14,7 @@ public class VerRegistro extends javax.swing.JFrame {
     public static ArrayList<Asistencia> Asistencia;
     public static ArrayList<Alumnos> Alumno;
     public static String nombre;
+    public static int controlV=0;
     
     public VerRegistro() {
         initComponents();
@@ -112,6 +113,7 @@ public class VerRegistro extends javax.swing.JFrame {
         Menu.CURSO=Curso;
         Menu.ALUMNOS=Alumno;
         Menu.ASISTENCIA=Asistencia;
+        men.controlM=controlV;
         
         men.setVisible(true);
         this.setVisible(false);

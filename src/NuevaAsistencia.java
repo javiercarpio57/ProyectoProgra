@@ -22,6 +22,7 @@ public class NuevaAsistencia extends javax.swing.JFrame {
     private ArrayList<Cursos> Curso;
     public static ArrayList<Asistencia> asistencia;
     public static ArrayList<Alumnos> ALUMNOS;
+    public static int controlN=0;
     private Date myDate = new Date();
     Cursos clases;
     Asistencia asis;
@@ -155,12 +156,16 @@ public class NuevaAsistencia extends javax.swing.JFrame {
         j.asistenciaP=asistencia;
         j.setLista(asistencia);
         
-        j.setVisible(false);
-        j.setVisible(true);
+        //
+        
+        
+        
+        
         
         Menu menu = new Menu();
         
         Menu.CURSO = (Curso);
+        menu.controlM=controlN;
         Menu.ASISTENCIA = (asistencia);
         Menu.ALUMNOS = ALUMNOS;
         menu.setVisible(true);
@@ -192,6 +197,7 @@ public class NuevaAsistencia extends javax.swing.JFrame {
         
         Menu.CURSO = (Curso);
         Menu.ASISTENCIA = (asistencia);
+        menu.controlM=controlN;
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed

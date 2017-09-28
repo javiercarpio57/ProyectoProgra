@@ -92,6 +92,7 @@ public class Profesor
                         VistaProfesor j= new VistaProfesor();
                         j.curso=i.getCurso();
                         
+                        
                     }
                     
                 }
@@ -116,7 +117,7 @@ public class Profesor
             {
                 if (i.getCurso().equals(curso)) 
                 {
-                    concatenar+=i.toString();
+                    concatenar+=i.toString2()+"\n";
                     
                 }
             

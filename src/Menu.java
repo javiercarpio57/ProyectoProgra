@@ -20,6 +20,7 @@ public class Menu extends javax.swing.JFrame {
     public static ArrayList<Cursos> CURSO;
     public static ArrayList<Asistencia> ASISTENCIA;
     public static ArrayList<Alumnos> ALUMNOS;
+    public static int controlM=0;
     
     public Menu() {
         initComponents();
@@ -136,6 +137,7 @@ public class Menu extends javax.swing.JFrame {
         asis.SetLista(CURSO, ASISTENCIA);
         NuevaAsistencia.ALUMNOS = ALUMNOS;
         asis.setVisible(true);
+        asis.controlN=controlM;
         asis.setNombre(NOMBRE);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -147,6 +149,7 @@ public class Menu extends javax.swing.JFrame {
         VerRegistro.Curso=CURSO;
         VerRegistro.Alumno = ALUMNOS;
         VerRegistro.Asistencia = ASISTENCIA;
+        reg.controlV=controlM;
         reg.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -157,7 +160,7 @@ public class Menu extends javax.swing.JFrame {
         InicioSesion.ASISTENCIA = ASISTENCIA;
         InicioSesion.CURSO = CURSO;
         InicioSesion.alumno = ALUMNOS;
-        
+        inicio.control=controlM;
         inicio.setVisible(true);
         this.setVisible(false);
         

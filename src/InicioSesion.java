@@ -20,6 +20,7 @@ public class InicioSesion extends javax.swing.JFrame {
     public static ArrayList<Alumnos> alumno;
     public static ArrayList<Cursos> CURSO;
     public static ArrayList<Asistencia> ASISTENCIA;
+    public static int control=0;
     public InicioSesion() {
         initComponents();
         alumno = new ArrayList<>();
@@ -137,6 +138,7 @@ public class InicioSesion extends javax.swing.JFrame {
         NuevoAlumno.ASISTENCIA = ASISTENCIA;
         NuevoAlumno.CURSO = CURSO;
         nuevo.setLista(alumno);
+        nuevo.controlNA=control;
         nuevo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -163,6 +165,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 Menu.ALUMNOS = alumno;
                 Menu.ASISTENCIA = ASISTENCIA;
                 Menu.CURSO = CURSO;
+                menu.controlM=control;
                 menu.setVisible(true);
                 this.setVisible(false);
                 
@@ -184,12 +187,16 @@ public class InicioSesion extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         VistaProfesor vp= new VistaProfesor();
-        Asistencia x=new Asistencia();
-        ASISTENCIA.add(x);
-        vp.asistenciaP=ASISTENCIA;
         
-        vp.setVisible(true);
-        vp.setLocation(750,0);
+        if (control==0) 
+        {
+            vp.asistenciaP=ASISTENCIA;        
+            vp.setVisible(true);
+            vp.setLocation(720,0);
+            control++;
+            
+        }
+        
         jButton3.setVisible(false);
     }//GEN-LAST:event_formWindowOpened
 

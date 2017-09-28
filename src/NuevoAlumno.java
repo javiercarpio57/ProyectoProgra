@@ -14,7 +14,8 @@ public class NuevoAlumno extends javax.swing.JFrame {
 
     private ArrayList<Alumnos> Alumno;
     public static ArrayList<Cursos> CURSO = new ArrayList<>();
-    public static ArrayList<Asistencia> ASISTENCIA = new ArrayList<>();;
+    public static ArrayList<Asistencia> ASISTENCIA = new ArrayList<>();
+    public static int controlNA=0;
     public NuevoAlumno() {
         initComponents();
     }
@@ -132,6 +133,7 @@ public class NuevoAlumno extends javax.swing.JFrame {
             InicioSesion.ASISTENCIA = (ASISTENCIA);
             InicioSesion.CURSO = (CURSO);
             inicio.setVisible(true);
+            inicio.control=controlNA;
             this.setVisible(false);
         }
         
