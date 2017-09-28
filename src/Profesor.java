@@ -128,4 +128,12 @@ public class Profesor
             return concatenar;
         
         }
+        
+        public void llenarAlumnos(ArrayList<Asistencia> asistencia){
+        
+        }
+        
+        public void llenarFechas(){
+            
+        }
 }

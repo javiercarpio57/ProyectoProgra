@@ -23,10 +23,11 @@ public class VistaProfesor extends javax.swing.JFrame {
     ArrayList <Profesor> profesores;
     public static String curso="";
     public static ArrayList<Asistencia> asistenciaP;
+    
     private Timer timer;
     public VistaProfesor() {
         initComponents();
-        profesores=new ArrayList <Profesor>();
+        profesores=new ArrayList <>();
     }
 
     /**
@@ -42,17 +43,18 @@ public class VistaProfesor extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jButton3 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        jComboBox3 = new javax.swing.JComboBox();
 
         jButton2.setText("Actualizar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -90,6 +92,12 @@ public class VistaProfesor extends javax.swing.JFrame {
         jRadioButton2.setText("jRadioButton2");
 
         jButton3.setText("Buscar");
+
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Ingrese su usuario:");
 
@@ -139,6 +147,8 @@ public class VistaProfesor extends javax.swing.JFrame {
                 .addContainerGap(99, Short.MAX_VALUE))
         );
 
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -152,19 +162,24 @@ public class VistaProfesor extends javax.swing.JFrame {
                         .addGap(282, 282, 282))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(156, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(jRadioButton2)
-                                .addGap(52, 52, 52)
-                                .addComponent(jButton3))
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jRadioButton1)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(38, 38, 38)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(36, 36, 36)
+                                        .addComponent(jRadioButton2)
+                                        .addGap(52, 52, 52)
+                                        .addComponent(jButton3))
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -188,12 +203,14 @@ public class VistaProfesor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(125, 125, 125))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 181, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 181, Short.MAX_VALUE)))
         );
 
         pack();
@@ -203,6 +220,7 @@ public class VistaProfesor extends javax.swing.JFrame {
     {
         public void actionPerformed(ActionEvent evt)
         {
+            
             jButton2.doClick();
             for (Asistencia i:asistenciaP) 
             {
@@ -214,7 +232,6 @@ public class VistaProfesor extends javax.swing.JFrame {
                     jComboBox2.removeAllItems();
                     jComboBox2.addItem(i.getNombre());
                     
-                
                 }
             
             }
@@ -229,6 +246,7 @@ public class VistaProfesor extends javax.swing.JFrame {
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        jComboBox3.setVisible(false);
         jTextArea1.setVisible(false);
         jScrollPane1.setVisible(false);
         jLabel3.setVisible(false);
@@ -255,12 +273,15 @@ public class VistaProfesor extends javax.swing.JFrame {
          {
              System.out.println(i.getNombre()+i.getCarnet());
          }
+         
+         //p.llenarAlumnos(asistenciaP);
+         
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Profesor p= new Profesor();
-        
+        int control = 0;
         if (p.IngresarSesion(jTextField1.getText(), jPasswordField1.getText(),profesores)==true) 
         {
             System.out.println("Bueno");
@@ -269,15 +290,22 @@ public class VistaProfesor extends javax.swing.JFrame {
             jScrollPane1.setVisible(true);
             jLabel3.setVisible(true);
             jButton2.setVisible(true);
+            jComboBox1.setVisible(true);
+            jComboBox2.setVisible(true);
+            jComboBox3.setVisible(true);
             
             timer=new Timer(1000,new actualizar());
             timer.start();
+            control++;
             
+            if(control == 0){
+                JOptionPane.showMessageDialog(null,"Usuario o contrasena incorrecta");
+            }
             
         }
         else    
         {
-            JOptionPane.showMessageDialog(null,"Usuario o contrasena incorrecta");
+            
         }
         
         
@@ -299,9 +327,13 @@ public class VistaProfesor extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1MouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     
     public void setLista(ArrayList<Asistencia> x)
@@ -347,8 +379,9 @@ public class VistaProfesor extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    public static javax.swing.JComboBox<String> jComboBox1;
+    public static javax.swing.JComboBox<String> jComboBox2;
+    public static javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

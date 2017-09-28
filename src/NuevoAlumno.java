@@ -125,17 +125,29 @@ public class NuevoAlumno extends javax.swing.JFrame {
         if((jTextField1.getText().equals("")) || (jTextField2.getText().equals("")) || (jTextField3.getText().equals("")) || (jTextField4.getText().equals(""))){
             JOptionPane.showMessageDialog(this, "Llene todos los campos.");
         }else{
+            //Profesor p = new Profesor();
+            
+            
             Alumnos alum = new Alumnos(jTextField1.getText(), jTextField4.getText(), jTextField2.getText(), jTextField3.getText());
             InicioSesion inicio = new InicioSesion();
-        
+            
             Alumno.add(alum);
+            VistaProfesor.jComboBox3.removeAllItems();
+            for(Alumnos x: Alumno){
+                
+                VistaProfesor.jComboBox3.addItem(x.getCarnet());
+            }
+            
             InicioSesion.alumno = (Alumno);
             InicioSesion.ASISTENCIA = (ASISTENCIA);
             InicioSesion.CURSO = (CURSO);
             inicio.setVisible(true);
             inicio.control=controlNA;
             this.setVisible(false);
+            
         }
+        
+        
         
         
         
