@@ -162,7 +162,8 @@ public class Menu extends javax.swing.JFrame {
         InicioSesion.alumno = ALUMNOS;
         inicio.control=controlM;
         inicio.setVisible(true);
-        this.setVisible(false);
+        Menu m=new Menu();
+        m.setVisible(false);
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
