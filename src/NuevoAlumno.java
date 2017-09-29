@@ -132,12 +132,7 @@ public class NuevoAlumno extends javax.swing.JFrame {
             InicioSesion inicio = new InicioSesion();
             
             Alumno.add(alum);
-            VistaProfesor.cmbCarnet.removeAllItems();
-            for(Alumnos x: Alumno){
-                //String carnet = x.getCarnet();
-                //System.out.println(carnet);
-                //VistaProfesor.cmbCarnet.addItem(carnet);
-            }
+            
             
             InicioSesion.alumno = (Alumno);
             InicioSesion.ASISTENCIA = (ASISTENCIA);

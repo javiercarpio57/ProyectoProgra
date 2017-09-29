@@ -44,11 +44,11 @@ public class VistaProfesor extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         cmbCarnet = new javax.swing.JComboBox();
-        jButton3 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         cmbFecha = new javax.swing.JComboBox<String>();
         jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblCarnet = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
@@ -75,11 +75,11 @@ public class VistaProfesor extends javax.swing.JFrame {
 
         cmbCarnet.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
 
-        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
-        jButton3.setText("Buscar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -92,11 +92,11 @@ public class VistaProfesor extends javax.swing.JFrame {
 
         jLabel3.setText("Registro general de asistencias");
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
-        jLabel1.setText("Carnet:");
+        lblCarnet.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
+        lblCarnet.setText("Carnet:");
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
-        jLabel6.setText("Fecha:");
+        lblFecha.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
+        lblFecha.setText("Fecha:");
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -114,11 +114,11 @@ public class VistaProfesor extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(lblCarnet)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmbCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(190, 190, 190)
-                .addComponent(jLabel6)
+                .addComponent(lblFecha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cmbFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
@@ -127,7 +127,7 @@ public class VistaProfesor extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(485, 485, 485)
-                        .addComponent(jButton3)
+                        .addComponent(btnBuscar)
                         .addGap(0, 223, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -140,13 +140,13 @@ public class VistaProfesor extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel6)
+                    .addComponent(lblCarnet)
+                    .addComponent(lblFecha)
                     .addComponent(cmbCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(btnBuscar)
                 .addContainerGap())
         );
 
@@ -272,6 +272,12 @@ public class VistaProfesor extends javax.swing.JFrame {
     
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        lblCarnet.setVisible(false);
+        lblFecha.setVisible(false);
+        btnBuscar.setVisible(false);
+        cmbCarnet.setVisible(false);
+        cmbFecha.setVisible(false);
+        
         Profesor p= new Profesor();
         jTextField1.setText("");
         jPasswordField1.setText("");
@@ -286,7 +292,13 @@ public class VistaProfesor extends javax.swing.JFrame {
         
         profesores=p.crearProfesor(profesores);
         
-         
+        for(Asistencia x: asistenciaP){
+            if(x.getCurso().equals(curso)){
+                cmbCarnet.addItem(x.getNombre());
+            }
+        }
+        
+        
          for(Profesor i:profesores)
          {
              System.out.println(i.getNombre()+i.getCarnet());
@@ -346,9 +358,9 @@ public class VistaProfesor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbFechaActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     
     public void setLista(ArrayList<Asistencia> x)
@@ -391,22 +403,22 @@ public class VistaProfesor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     public static javax.swing.JComboBox cmbCarnet;
     public static javax.swing.JComboBox<String> cmbFecha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblCarnet;
+    private javax.swing.JLabel lblFecha;
     // End of variables declaration//GEN-END:variables
 }
