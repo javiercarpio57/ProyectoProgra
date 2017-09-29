@@ -205,7 +205,7 @@ public class InicioSesion extends javax.swing.JFrame {
         {
             vp.asistenciaP=ASISTENCIA;        
             vp.setVisible(true);
-            vp.setLocation(720,0);
+            vp.setLocation(710,0);
             control++;
             
         }
