@@ -15,10 +15,9 @@ public class Profesor
 {
     
     private String nombre;
-	private String contrasena;
-	
-	private String carnet;
-	private String curso;
+    private String contrasena;
+    private String carnet;
+    private String curso;
 	
         public Profesor()
         {}
@@ -89,8 +88,7 @@ public class Profesor
                     if (i.getContrasena().equals(contra)) 
                     {
                         respuesta=true;
-                        VistaProfesor j= new VistaProfesor();
-                        j.curso=i.getCurso();
+                        VistaProfesor.curso = i.getCurso();
                         
                         
                     }
@@ -109,7 +107,7 @@ public class Profesor
             
             if (x.size()==0) 
             {
-                System.out.println("Esta sin nada");
+                //System.out.println("Esta sin nada");
                 
             }
             

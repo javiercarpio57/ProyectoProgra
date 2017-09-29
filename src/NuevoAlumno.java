@@ -132,15 +132,17 @@ public class NuevoAlumno extends javax.swing.JFrame {
             InicioSesion inicio = new InicioSesion();
             
             Alumno.add(alum);
-            VistaProfesor.jComboBox3.removeAllItems();
+            VistaProfesor.cmbCarnet.removeAllItems();
             for(Alumnos x: Alumno){
-                
-                VistaProfesor.jComboBox3.addItem(x.getCarnet());
+                //String carnet = x.getCarnet();
+                //System.out.println(carnet);
+                //VistaProfesor.cmbCarnet.addItem(carnet);
             }
             
             InicioSesion.alumno = (Alumno);
             InicioSesion.ASISTENCIA = (ASISTENCIA);
             InicioSesion.CURSO = (CURSO);
+            VistaProfesor.alumnos = Alumno;
             inicio.setVisible(true);
             inicio.control=controlNA;
             this.setVisible(false);

@@ -43,12 +43,12 @@ public class Asistencia {
 
     @Override
     public String toString() {
-        return "ASISTENCIA: " + "Nombre: " + nombre + ", curso: " + curso + ", maestro: " + maestro + ", fecha: " + fecha;
+        return "Nombre: " + nombre + ", curso: " + curso + ", maestro: " + maestro + ", fecha: " + fecha;
     }
     
     public String toString2() 
     {
-        return "ASISTENCIA: " + "Nombre: " + nombre + ", curso: " + curso + ", fecha: " + fecha;
+        return "Nombre: " + nombre + ", curso: " + curso + ", fecha: " + fecha;
     }
     
 }

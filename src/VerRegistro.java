@@ -56,6 +56,7 @@ public class VerRegistro extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         jTextArea1.setRows(5);
@@ -101,8 +102,6 @@ public class VerRegistro extends javax.swing.JFrame {
             }
         }
         jTextArea1.setText(concatenar);
-        
-        jTextArea1.setEnabled(false);
         
     }//GEN-LAST:event_formWindowOpened
 
