@@ -272,7 +272,6 @@ public class VistaProfesor extends javax.swing.JFrame {
         {
             
             jButton2.doClick();
-            System.out.println("aa");
             cmbCarnet.removeAllItems();
             for (Asistencia i:asistenciaP) 
             {
@@ -289,8 +288,6 @@ public class VistaProfesor extends javax.swing.JFrame {
             }
         }
     }
-    
-    
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         lblCarnet.setVisible(false);
