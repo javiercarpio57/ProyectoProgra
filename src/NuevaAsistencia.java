@@ -1,5 +1,12 @@
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,6 +23,7 @@ public class NuevaAsistencia extends javax.swing.JFrame {
     /**
      * Creates new form NuevaAsistencia
      */
+<<<<<<< HEAD
     private String cursos[];
     private Integer CantAsistencia[];
     private ArrayList<Cursos> Curso;
@@ -39,6 +47,21 @@ public class NuevaAsistencia extends javax.swing.JFrame {
         CantAsistencia[3] = 0;
         CantAsistencia[4] = 0;
         
+=======
+    private ArrayList<Cursos> Curso;
+    public static ArrayList<Asistencia> asistencia;
+    public static ArrayList<Alumnos> ALUMNOS;
+    public static int controlN=0;
+    private Date myDate = new Date();
+    Cursos clases;
+    Asistencia asis;
+    String nombre;
+    public NuevaAsistencia() {
+        initComponents();
+        Curso = new ArrayList<>();
+        asistencia = new ArrayList<>();
+        ALUMNOS = new ArrayList<>();
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     }
 
     /**
@@ -51,10 +74,17 @@ public class NuevaAsistencia extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+<<<<<<< HEAD
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+=======
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        cmbClases = new javax.swing.JComboBox();
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -66,9 +96,12 @@ public class NuevaAsistencia extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
         jLabel1.setText("Ha tomado la asistencia de: ");
 
+<<<<<<< HEAD
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
         jLabel2.setText("...");
 
+=======
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
         jButton1.setText("Tomar asistencia");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +125,12 @@ public class NuevaAsistencia extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
+=======
+        cmbClases.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
+        cmbClases.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Programacion Orientada a Objetos", "Calculo 1", "Fisica 1" }));
+
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,6 +141,7 @@ public class NuevaAsistencia extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                         .addGap(202, 202, 202)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
@@ -114,15 +154,37 @@ public class NuevaAsistencia extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(89, 89, 89))
+=======
+                        .addGap(140, 140, 140)
+                        .addComponent(jButton2)))
+                .addContainerGap(215, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(89, 89, 89))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(cmbClases, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(139, 139, 139))))
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(122, 122, 122)
                 .addComponent(jLabel1)
+<<<<<<< HEAD
                 .addGap(35, 35, 35)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+=======
+                .addGap(94, 94, 94)
+                .addComponent(cmbClases, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
@@ -135,6 +197,7 @@ public class NuevaAsistencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+<<<<<<< HEAD
         ran = (int)(Math.random()*4 + 0);
         int c = 0;
         int f = 0;
@@ -180,6 +243,49 @@ public class NuevaAsistencia extends javax.swing.JFrame {
                 break;
                 
         }
+=======
+        
+        String clase = (String) cmbClases.getSelectedItem();
+        String fecha = new SimpleDateFormat("dd-MM-yyyy").format(myDate);
+        
+        if(clase.equals("Programacion Orientada a Objetos")){
+            clases = new Cursos("Programacion Orientada a Objetos", "Douglas Barrios", "A - 303", nombre);
+            Curso.add(clases);
+            asis = new Asistencia(nombre, "Programacion Orientada a Objetos", "Douglas Barrios", fecha);
+            asistencia.add(asis);
+        }else if(clase.equals("Calculo 1")){
+            clases = new Cursos("Calculo 1", "Ronald Curtiss", "A - 109", nombre);
+            Curso.add(clases);
+            asis = new Asistencia(nombre, "Calculo 1", "Ronald Curtiss", fecha);
+            asistencia.add(asis);
+        }else if(clase.equals("Fisica 1")){
+            clases = new Cursos("Fisica 1", "Magda Moscoso", "A - 302", nombre);
+            Curso.add(clases);
+            asis = new Asistencia(nombre, "Fisica 1", "Magda Moscoso", fecha);
+            asistencia.add(asis);
+        }
+        
+        VistaProfesor j =new VistaProfesor();
+        
+        j.asistenciaP=asistencia;
+        j.setLista(asistencia);
+        
+        //
+        
+        
+        
+        
+        
+        Menu menu = new Menu();
+        
+        Menu.CURSO = (Curso);
+        menu.controlM=controlN;
+        Menu.ASISTENCIA = (asistencia);
+        Menu.ALUMNOS = ALUMNOS;
+        menu.setVisible(true);
+        this.setVisible(false);
+        
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -191,6 +297,7 @@ public class NuevaAsistencia extends javax.swing.JFrame {
         
         System.out.println(cadena);
         
+<<<<<<< HEAD
         for(int i = 0; i <CantAsistencia.length; i++){
             System.out.println(CantAsistencia[i]);
         }
@@ -201,10 +308,27 @@ public class NuevaAsistencia extends javax.swing.JFrame {
         Curso = c;
     }
     
+=======
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    public void SetLista(ArrayList c, ArrayList a){
+        Curso = c;
+        asistencia = a;
+    }
+    public void setNombre(String Nombre){
+        nombre = Nombre;
+    }
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Menu menu = new Menu();
         
         Menu.CURSO = (Curso);
+<<<<<<< HEAD
+=======
+        Menu.ASISTENCIA = (asistencia);
+        menu.controlM=controlN;
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -250,10 +374,17 @@ public class NuevaAsistencia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
+=======
+    private javax.swing.JComboBox cmbClases;
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel2;
+=======
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     // End of variables declaration//GEN-END:variables
 }

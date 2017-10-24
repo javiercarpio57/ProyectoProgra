@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -5,6 +6,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -23,6 +26,7 @@ public class InicioSesion extends javax.swing.JFrame {
     /**
      * Creates new form InicioSesion
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     
     public static ArrayList<Alumnos> alumno;
@@ -56,6 +60,18 @@ public class InicioSesion extends javax.swing.JFrame {
         correos = new ArrayList<String>();
         
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+    
+    public static ArrayList<Alumnos> alumno;
+    public static ArrayList<Cursos> CURSO;
+    public static ArrayList<Asistencia> ASISTENCIA;
+    public static int control=0;
+    public InicioSesion() {
+        initComponents();
+        alumno = new ArrayList<>();
+        CURSO = new ArrayList<>();
+        ASISTENCIA = new ArrayList<>();
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     }
 
     /**
@@ -74,6 +90,10 @@ public class InicioSesion extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+<<<<<<< HEAD
+=======
+        jLabel3 = new javax.swing.JLabel();
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -85,6 +105,7 @@ public class InicioSesion extends javax.swing.JFrame {
         jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 
         jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+<<<<<<< HEAD
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel1.setText("Contrasena");
@@ -92,6 +113,15 @@ public class InicioSesion extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel2.setText("Carnet");
 
+=======
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel1.setText("Contrasena");
+
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel2.setText("Carnet");
+
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
         jButton1.setText("Siguiente");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +144,9 @@ public class InicioSesion extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel3.setText("Estudiante");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,8 +175,25 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addGap(104, 104, 104))
 =======
             .addGroup(layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(115, 115, 115)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(135, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(104, 104, 104))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(154, 154, 154)
+                .addComponent(jLabel2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                         .addContainerGap()
                         .addComponent(btnNuevo)
                         .addGap(18, 18, 18)
@@ -163,10 +213,20 @@ public class InicioSesion extends javax.swing.JFrame {
                         .addComponent(jLabel3)))
                 .addContainerGap(25, Short.MAX_VALUE))
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel3)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(147, 147, 147))))
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
 <<<<<<< HEAD
                 .addGap(232, 232, 232)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -187,19 +247,32 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+=======
+                .addGap(113, 113, 113)
+                .addComponent(jLabel3)
+                .addGap(105, 105, 105)
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pssContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(79, 79, 79)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(153, 153, 153)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+<<<<<<< HEAD
                     .addComponent(btnNuevo)
                     .addComponent(btnSeguir))
                 .addContainerGap(203, Short.MAX_VALUE))
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addContainerGap())
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         );
 
         pack();
@@ -207,6 +280,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         NuevoAlumno nuevo = new NuevoAlumno();
+<<<<<<< HEAD
 <<<<<<< HEAD
         nuevo.setLista(alumno);
         nuevo.setVisible(true);
@@ -242,34 +316,50 @@ public class InicioSesion extends javax.swing.JFrame {
             
 =======
         nuevo.getArrayLists(nombres, apellidos, carnet, contrasena, correos);
+=======
+        NuevoAlumno.ASISTENCIA = ASISTENCIA;
+        NuevoAlumno.CURSO = CURSO;
+        nuevo.setLista(alumno);
+        nuevo.controlNA=control;
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         nuevo.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnNuevoActionPerformed
-    
-    public void getInfo(ArrayList nom, ArrayList ape, ArrayList car, ArrayList contra, ArrayList cor){
-        nombres = nom;
-        apellidos = ape;
-        carnet = car;
-        contrasena = contra;
-        correos = cor;
-    }
-    String c, contra;
-    
-    public void verificarUsuarioContrasena(){
-        Fuente fuen = new Fuente();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String cadena = "";
+        
+        for(Alumnos x: alumno){
+            cadena += x.toStringNAC() + "\n";
+        }
+        
+        System.out.println(cadena);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Menu menu = new Menu();
         
-        boolean control = false;
-        c = txtUsuario.getText();
-        contra = pssContrasena.getText();
         
-        if(txtUsuario.getText().isEmpty()){
-            control = false;
-        } else if((pssContrasena.getText().isEmpty())){
-            control = false;
-        } else{
-            for(int i = 0; i < carnet.size(); i++){
+        for(Alumnos j: alumno)
+        {
+            if((j.getCarnet().equals(jTextField1.getText())) && (j.getContrasena().equals(jTextField2.getText())))
+            {
+                Menu.NOMBRE = j.toStringNA();
+                Menu.ALUMNOS = alumno;
+                Menu.ASISTENCIA = ASISTENCIA;
+                Menu.CURSO = CURSO;
+                menu.controlM=control;
+                menu.setVisible(true);
+                this.setVisible(false);
+                control++;
+                if(control == 0){
+                    JOptionPane.showMessageDialog(null, "Error 101. Ingrese correctamente los datos.");
+                }
+            }
+            else
+            {
                 
+<<<<<<< HEAD
                 if(!carnet.isEmpty()){
                     if((c.equals(carnet.get(i))) && (contra.equals(contrasena.get(i)))){
                         control = true;
@@ -283,10 +373,15 @@ public class InicioSesion extends javax.swing.JFrame {
                     control = false;
                 }                
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+
+            
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
             }
            
         }
         
+<<<<<<< HEAD
 <<<<<<< HEAD
         
         
@@ -301,19 +396,34 @@ public class InicioSesion extends javax.swing.JFrame {
         if(nombres.isEmpty()){
            control = false;
         }
+=======
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         
-        if(control != false){
-            fuen.getDatos(FuenteN, FuenteA, FuenteC, FuenteCor);
-            Menu.lblUsuario.setText(FuenteN + " " + FuenteA);
-            Menu.lblCarnet.setText(FuenteC);
-            menu.setVisible(true);
-            this.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(this, "Ingrese correctamente sus datos");
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        VistaProfesor vp= new VistaProfesor();
+        
+        if (control==0) 
+        {
+            vp.asistenciaP=ASISTENCIA;        
+            vp.setVisible(true);
+            vp.setLocation(710,0);
+            control++;
+            
         }
+<<<<<<< HEAD
     }
     
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+        
+        jButton3.setVisible(false);
+    }//GEN-LAST:event_formWindowOpened
+
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     /**
      * @param args the command line arguments
      */
@@ -355,6 +465,10 @@ public class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+<<<<<<< HEAD
+=======
+    private javax.swing.JLabel jLabel3;
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables

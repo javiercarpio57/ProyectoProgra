@@ -1,9 +1,15 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import java.util.ArrayList;
 
 =======
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+
+import java.util.ArrayList;
+
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,6 +19,7 @@ import java.util.ArrayList;
 /**
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @author javie
  */
 =======
@@ -21,11 +28,16 @@ import java.util.ArrayList;
 import java.util.ArrayList;
 
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+ * @author javie
+ */
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
 public class Menu extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public static String NOMBRE;
     public static ArrayList<Cursos> CURSO;
@@ -39,12 +51,24 @@ public class Menu extends javax.swing.JFrame {
     public String carnet;
     public String correo;
     public static ArrayList<String> x= new ArrayList<String>();
+=======
+    public static String NOMBRE;
+    public static ArrayList<Cursos> CURSO;
+    public static ArrayList<Asistencia> ASISTENCIA;
+    public static ArrayList<Alumnos> ALUMNOS;
+    public static int controlM=0;
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     
     public Menu() {
-        
         initComponents();
+<<<<<<< HEAD
         
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+        CURSO = new ArrayList<>();
+        ASISTENCIA = new ArrayList<>();
+        ALUMNOS = new ArrayList<>();
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     }
 
     /**
@@ -56,6 +80,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -93,42 +118,64 @@ public class Menu extends javax.swing.JFrame {
         btnMandarExcusa = new javax.swing.JButton();
         lblUsuario = new javax.swing.JLabel();
         lblCarnet = new javax.swing.JLabel();
+=======
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btnTomarAsistencia.setText("Tomar Asistencia");
-        btnTomarAsistencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTomarAsistenciaActionPerformed(evt);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
-        btnVerRegistro.setText("Ver Registro de Asistencias");
-        btnVerRegistro.setPreferredSize(new java.awt.Dimension(113, 23));
-        btnVerRegistro.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel1.setText("...");
+
+        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        jButton1.setText("Agregar asistencia");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerRegistroActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        btnMandarExcusa.setText("Mandar Excusa");
-        btnMandarExcusa.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        jButton2.setText("Ver registros");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMandarExcusaActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        jButton3.setText("Cerrar sesion");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+<<<<<<< HEAD
         lblUsuario.setText("Nombre de Usuario");
 
         lblCarnet.setText("Carnet");
 
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
                 .addGap(52, 52, 52)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -136,6 +183,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(141, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+<<<<<<< HEAD
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(141, 141, 141))
 =======
@@ -152,11 +200,17 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(btnMandarExcusa, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(91, Short.MAX_VALUE))
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(141, 141, 141))
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
 <<<<<<< HEAD
                 .addComponent(jLabel1)
                 .addGap(143, 143, 143)
@@ -176,11 +230,22 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(btnMandarExcusa, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+                .addComponent(jLabel1)
+                .addGap(143, 143, 143)
+                .addComponent(jButton1)
+                .addGap(70, 70, 70)
+                .addComponent(jButton2)
+                .addGap(62, 62, 62)
+                .addComponent(jButton3)
+                .addContainerGap(162, Short.MAX_VALUE))
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         jLabel1.setText(NOMBRE);
@@ -219,21 +284,70 @@ public class Menu extends javax.swing.JFrame {
         registro.setVisible(true);
         this.setVisible(false);
         registro.j=x;
+=======
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        jLabel1.setText(NOMBRE);
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         
+        String cadena = "";
+        for(Cursos j: CURSO){
+            cadena += j.toString() + "\n";
+        }
+        System.out.println(cadena);
         
+        String cadena1 = "";
+        for(Asistencia a: ASISTENCIA){
+            cadena1 += a.toString() + "\n";
+        }
+        System.out.println(cadena1);
         
-    }//GEN-LAST:event_btnVerRegistroActionPerformed
+        String cadena2 = "";
+        for(Alumnos b: ALUMNOS){
+            cadena2 += b.toStringNAC() + "\n";
+        }
+        System.out.println(cadena2);
+    }//GEN-LAST:event_formWindowOpened
 
-    private void btnMandarExcusaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMandarExcusaActionPerformed
-        // TODO add your handling code here:
-        nombre = lblUsuario.getText();
-        carnet = lblCarnet.getText();
-        Mansar_Excusa excusa=new Mansar_Excusa();
-        excusa.setVisible(true);
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        NuevaAsistencia asis = new NuevaAsistencia();
+        asis.SetLista(CURSO, ASISTENCIA);
+        NuevaAsistencia.ALUMNOS = ALUMNOS;
+        asis.setVisible(true);
+        asis.controlN=controlM;
+        asis.setNombre(NOMBRE);
         this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        VerRegistro reg = new VerRegistro();
+        VerRegistro.nombre=NOMBRE;
+        VerRegistro.Curso=CURSO;
+        VerRegistro.Alumno = ALUMNOS;
+        VerRegistro.Asistencia = ASISTENCIA;
+        reg.controlV=controlM;
+        reg.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        InicioSesion inicio = new InicioSesion();
         
+        InicioSesion.ASISTENCIA = ASISTENCIA;
+        InicioSesion.CURSO = CURSO;
+        InicioSesion.alumno = ALUMNOS;
+        inicio.control=controlM;
+        inicio.setVisible(true);
+        Menu m=new Menu();
+        m.setVisible(false);
+        
+        
+<<<<<<< HEAD
     }//GEN-LAST:event_btnMandarExcusaActionPerformed
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+    }//GEN-LAST:event_jButton3ActionPerformed
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
 
     /**
      * @param args the command line arguments
@@ -272,6 +386,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
 <<<<<<< HEAD
+<<<<<<< HEAD
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -282,5 +397,11 @@ public class Menu extends javax.swing.JFrame {
     public static javax.swing.JLabel lblCarnet;
     public static javax.swing.JLabel lblUsuario;
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     // End of variables declaration//GEN-END:variables
 }

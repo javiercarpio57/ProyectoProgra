@@ -8,12 +8,17 @@
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
 <<<<<<< HEAD
+<<<<<<< HEAD
 <project name="Final" default="default" basedir=".">
     <description>Builds, tests, and runs the project Final.</description>
 =======
 <project name="Proyecto" default="default" basedir=".">
     <description>Builds, tests, and runs the project Proyecto.</description>
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+<project name="Final" default="default" basedir=".">
+    <description>Builds, tests, and runs the project Final.</description>
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     <import file="nbproject/build-impl.xml"/>
     <!--
 
@@ -64,10 +69,14 @@
     An example of overriding the target for project execution could look like this:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         <target name="run" depends="Final-impl.jar">
 =======
         <target name="run" depends="Proyecto-impl.jar">
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
+=======
+        <target name="run" depends="Final-impl.jar">
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
             <exec dir="bin" executable="launcher.exe">
                 <arg file="${dist.jar}"/>
             </exec>
