@@ -1,4 +1,10 @@
 
+<<<<<<< HEAD
+=======
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -17,11 +23,39 @@ public class InicioSesion extends javax.swing.JFrame {
     /**
      * Creates new form InicioSesion
      */
+<<<<<<< HEAD
     
     public static ArrayList<Alumnos> alumno;
+=======
+    private ArrayList<String> correos;
+    private ArrayList<String> contrasena;
+    private ArrayList<String> nombres;
+    private ArrayList<String> apellidos;
+    private ArrayList<String> carnet;
+    public String nombre;
+    public String apellido;
+    public String carnets;
+    public String contras;
+    public String corr;
+    public String FuenteN;
+    public String FuenteA;
+    public String FuenteC;
+    public String FuenteCor;
+    
+    
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
     public InicioSesion() {
         initComponents();
+<<<<<<< HEAD
         alumno = new ArrayList<Alumnos>();
+=======
+        nombres = new ArrayList<String>();
+        apellidos = new ArrayList<String>();
+        carnet = new ArrayList<String>();
+        contrasena = new ArrayList<String>();
+        correos = new ArrayList<String>();
+        
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
     }
 
     /**
@@ -85,6 +119,7 @@ public class InicioSesion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(172, 172, 172)
                 .addComponent(jLabel2)
@@ -105,10 +140,34 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(104, 104, 104))
+=======
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnNuevo)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pssContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel2)
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel3)))
+                .addContainerGap(25, Short.MAX_VALUE))
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(232, 232, 232)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -124,6 +183,23 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addContainerGap())
+=======
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pssContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(79, 79, 79)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevo)
+                    .addComponent(btnSeguir))
+                .addContainerGap(203, Short.MAX_VALUE))
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
         );
 
         pack();
@@ -131,6 +207,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         NuevoAlumno nuevo = new NuevoAlumno();
+<<<<<<< HEAD
         nuevo.setLista(alumno);
         nuevo.setVisible(true);
         this.setVisible(false);
@@ -163,10 +240,54 @@ public class InicioSesion extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Error 101. Ingrese correctamente los datos.");
 
             
+=======
+        nuevo.getArrayLists(nombres, apellidos, carnet, contrasena, correos);
+        nuevo.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnNuevoActionPerformed
+    
+    public void getInfo(ArrayList nom, ArrayList ape, ArrayList car, ArrayList contra, ArrayList cor){
+        nombres = nom;
+        apellidos = ape;
+        carnet = car;
+        contrasena = contra;
+        correos = cor;
+    }
+    String c, contra;
+    
+    public void verificarUsuarioContrasena(){
+        Fuente fuen = new Fuente();
+        Menu menu = new Menu();
+        
+        boolean control = false;
+        c = txtUsuario.getText();
+        contra = pssContrasena.getText();
+        
+        if(txtUsuario.getText().isEmpty()){
+            control = false;
+        } else if((pssContrasena.getText().isEmpty())){
+            control = false;
+        } else{
+            for(int i = 0; i < carnet.size(); i++){
+                
+                if(!carnet.isEmpty()){
+                    if((c.equals(carnet.get(i))) && (contra.equals(contrasena.get(i)))){
+                        control = true;
+                        FuenteN = nombres.get(i);
+                        FuenteA = apellidos.get(i);
+                        FuenteC = carnet.get(i);
+                        FuenteCor = correos.get(i);
+                        break;
+                    }
+                }else{
+                    control = false;
+                }                
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
             }
            
         }
         
+<<<<<<< HEAD
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -176,6 +297,23 @@ public class InicioSesion extends javax.swing.JFrame {
         jButton3.setVisible(false);
     }//GEN-LAST:event_formWindowOpened
 
+=======
+        if(nombres.isEmpty()){
+           control = false;
+        }
+        
+        if(control != false){
+            fuen.getDatos(FuenteN, FuenteA, FuenteC, FuenteCor);
+            Menu.lblUsuario.setText(FuenteN + " " + FuenteA);
+            Menu.lblCarnet.setText(FuenteC);
+            menu.setVisible(true);
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(this, "Ingrese correctamente sus datos");
+        }
+    }
+    
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
     /**
      * @param args the command line arguments
      */

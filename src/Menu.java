@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 
 import java.util.ArrayList;
 
+=======
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,18 +12,39 @@ import java.util.ArrayList;
 
 /**
  *
+<<<<<<< HEAD
  * @author javie
  */
+=======
+ * @author jose
+ */
+import java.util.ArrayList;
+
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
 public class Menu extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
      */
+<<<<<<< HEAD
     public static String NOMBRE;
     public static ArrayList<Cursos> CURSO;
     public Menu() {
         initComponents();
         CURSO = new ArrayList<Cursos>();
+=======
+    Fuente fuente = new Fuente();
+    public String nombre;
+    public String apellido;
+    public String carnet;
+    public String correo;
+    public static ArrayList<String> x= new ArrayList<String>();
+    
+    public Menu() {
+        
+        initComponents();
+        
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
     }
 
     /**
@@ -32,6 +56,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -62,11 +87,48 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+=======
+        btnTomarAsistencia = new javax.swing.JButton();
+        btnVerRegistro = new javax.swing.JButton();
+        btnMandarExcusa = new javax.swing.JButton();
+        lblUsuario = new javax.swing.JLabel();
+        lblCarnet = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnTomarAsistencia.setText("Tomar Asistencia");
+        btnTomarAsistencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTomarAsistenciaActionPerformed(evt);
+            }
+        });
+
+        btnVerRegistro.setText("Ver Registro de Asistencias");
+        btnVerRegistro.setPreferredSize(new java.awt.Dimension(113, 23));
+        btnVerRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerRegistroActionPerformed(evt);
+            }
+        });
+
+        btnMandarExcusa.setText("Mandar Excusa");
+        btnMandarExcusa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMandarExcusaActionPerformed(evt);
+            }
+        });
+
+        lblUsuario.setText("Nombre de Usuario");
+
+        lblCarnet.setText("Carnet");
+
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(52, 52, 52)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -76,22 +138,50 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(141, 141, 141))
+=======
+                .addContainerGap()
+                .addComponent(lblUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCarnet)
+                .addGap(53, 53, 53))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnTomarAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVerRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMandarExcusa, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(91, Short.MAX_VALUE))
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addComponent(jLabel1)
                 .addGap(143, 143, 143)
                 .addComponent(jButton1)
                 .addGap(147, 147, 147)
                 .addComponent(jButton2)
                 .addContainerGap(200, Short.MAX_VALUE))
+=======
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsuario)
+                    .addComponent(lblCarnet))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(btnTomarAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnVerRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnMandarExcusa, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         jLabel1.setText(NOMBRE);
     }//GEN-LAST:event_formWindowOpened
@@ -111,6 +201,39 @@ public class Menu extends javax.swing.JFrame {
         reg.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+=======
+    private void btnTomarAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTomarAsistenciaActionPerformed
+        // TODO add your handling code here:
+        nombre = lblUsuario.getText();
+        carnet = lblCarnet.getText();
+        Toma_Asistencia asis= new Toma_Asistencia();
+        asis.setVisible(true);
+        this.setVisible(false);
+        Toma_Asistencia.registro=x;
+    }//GEN-LAST:event_btnTomarAsistenciaActionPerformed
+
+    private void btnVerRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRegistroActionPerformed
+        nombre = lblUsuario.getText();
+        carnet = lblCarnet.getText();
+        Ver_Registro registro=new Ver_Registro();
+        registro.setVisible(true);
+        this.setVisible(false);
+        registro.j=x;
+        
+        
+        
+    }//GEN-LAST:event_btnVerRegistroActionPerformed
+
+    private void btnMandarExcusaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMandarExcusaActionPerformed
+        // TODO add your handling code here:
+        nombre = lblUsuario.getText();
+        carnet = lblCarnet.getText();
+        Mansar_Excusa excusa=new Mansar_Excusa();
+        excusa.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnMandarExcusaActionPerformed
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
 
     /**
      * @param args the command line arguments
@@ -148,8 +271,16 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+=======
+    private javax.swing.JButton btnMandarExcusa;
+    private javax.swing.JButton btnTomarAsistencia;
+    private javax.swing.JButton btnVerRegistro;
+    public static javax.swing.JLabel lblCarnet;
+    public static javax.swing.JLabel lblUsuario;
+>>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
     // End of variables declaration//GEN-END:variables
 }
