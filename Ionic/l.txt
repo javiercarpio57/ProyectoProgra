@@ -1,0 +1,15 @@
+ionic start name tabs
+
+    previsualizacion
+ionic serve --lab
+
+ctcl+c para parar la previsualizacion 
+
+para generar una nueva pagina 
+
+ionic generate page name
+tenes que modificar un chingo de cosas, ver video #5
+
+    proyecto en blanco
+
+ionic start notionic blank

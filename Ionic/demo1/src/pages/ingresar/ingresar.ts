@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import {TabsPage } from '../tabs/tabs';
 
-/**
- * Generated class for the IngresarPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 @IonicPage()
@@ -17,17 +12,52 @@ import {TabsPage } from '../tabs/tabs';
 })
 export class IngresarPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private Alerta:AlertController,private fire: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IngresarPage');
   }
 
-  ingresar()
+
+  alerta(mensaje:string)
+  {
+    this.Alerta.create({
+
+      title: 'Error!',
+      subTitle: mensaje,
+      buttons: ['OK']
+
+    }).present();
+
+  }
+
+
+  ingresar(usuario,contra)
   {
     // ver si esta correcta la informacion del usuario
-    this.navCtrl.push(TabsPage);
+
+    this.fire.auth.signInWithEmailAndPassword(usuario,contra)
+
+    .then(data=>{
+      //todos los datos son correctos
+      this.navCtrl.push(TabsPage);
+
+    })
+
+    .catch(error => {
+      // si se produce un error
+      console.log('Hay un problemita');
+      this.alerta(error.message);
+
+
+    })
+
+
+
+
+
+    
 
   }
 
