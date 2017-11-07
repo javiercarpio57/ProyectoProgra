@@ -24,22 +24,15 @@ public class Curso implements Serializable {
     private String maestro;
     private String salon;
     private String fecha;    
+    
     private String alumno;    
     
-    /**
-     * Metodo que nos permite crear un objeto de este tipo para relacionar esta clase.
-     */
+    private Date myDate = new Date();
+    
     public Curso(){
         
     }
     
-    /**
-     * Metodo que nos permite crear los objetos de este tipo para las colecciones.
-     * @param cursito Contiene el nombre del curso.
-     * @param Maestro Contiene el nombre del maestro.
-     * @param Salon Contiene el salon donde se imparte la clase.
-     * @param nom Contiene el nombre del alumno.
-     */
     public Curso(String cursito, String Maestro, String Salon, String nom){
         curso = cursito;
         maestro = Maestro;
@@ -48,31 +41,15 @@ public class Curso implements Serializable {
         fecha=new SimpleDateFormat("dd-MM-yyyy").format(myDate);
         alumno = nom;
     }
-    
-    /**
-     * Metodo que nos permite conocer el nombre del curso.
-     * @return curso
-     */
     public String getCurso(){
         return curso;
     }
-
-    /**
-     * Metodo que nos permite indicar el nombre del curso, salon y fecha.
-     * @return cadena
-     */
-    @Override
     public String toString() {
         String cadena;
-        
-        cadena = "CURSOS: " + (curso + " " + salon+" "+ fecha);
+        cadena = (curso + " " + salon+" "+"<html><b><u> Fecha de asistencia "+fecha+"</u></b>");
         return cadena;
     }
     
-    /**
-     * Metodo que nos permite conocer el nombre del maestro.
-     * @return maestro
-     */
     public String getMaestro(){
         return maestro;
     }

@@ -33,10 +33,28 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
+                      <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+=======
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
                       <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
+<<<<<<< HEAD
+              <EmptySpace pref="210" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jButton1" max="32767" attributes="0"/>
+                  <Component id="jButton3" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+=======
               <EmptySpace pref="215" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
@@ -54,6 +72,7 @@
                       <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                   </Group>
               </Group>
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,9 +81,15 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="212" max="32767" attributes="0"/>
+=======
               <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
               <Component id="cmbClases" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="158" max="32767" attributes="0"/>
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButton3" min="-2" max="-2" attributes="0"/>
@@ -84,6 +109,17 @@
         <Property name="text" type="java.lang.String" value="Ha tomado la asistencia de: "/>
       </Properties>
     </Component>
+<<<<<<< HEAD
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Century Gothic" size="30" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="..."/>
+      </Properties>
+    </Component>
+=======
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -114,6 +150,8 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
+=======
     <Component class="javax.swing.JComboBox" name="cmbClases">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -128,5 +166,6 @@
         </Property>
       </Properties>
     </Component>
+>>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
   </SubComponents>
 </Form>
