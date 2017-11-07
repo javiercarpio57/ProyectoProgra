@@ -1,27 +1,35 @@
-/**
- * @author Jose Cifuentes
- * @author Javier Carpio
- * @author Oliver Mazariegos
- * @version 29.09.2017
- */
 
-import java.text.DateFormat;
+package AlumnoMaestro;
+
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public class Cursos {
+/**
+ *
+ * @author javie
+ */
+@Entity
+public class Curso implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    
     private String curso;
     private String maestro;
     private String salon;
     private String fecha;    
-    private String alumno;
-    private Date myDate = new Date();
+    private String alumno;    
     
     /**
      * Metodo que nos permite crear un objeto de este tipo para relacionar esta clase.
      */
-    public Cursos(){
+    public Curso(){
         
     }
     
@@ -32,10 +40,11 @@ public class Cursos {
      * @param Salon Contiene el salon donde se imparte la clase.
      * @param nom Contiene el nombre del alumno.
      */
-    public Cursos(String cursito, String Maestro, String Salon, String nom){
+    public Curso(String cursito, String Maestro, String Salon, String nom){
         curso = cursito;
         maestro = Maestro;
         salon = Salon;
+        Date myDate = new Date();
         fecha=new SimpleDateFormat("dd-MM-yyyy").format(myDate);
         alumno = nom;
     }
@@ -68,12 +77,48 @@ public class Cursos {
         return maestro;
     }
     
+    public String getFecha(){
+        return fecha;
+    }
+    
+    public String getSalon(){
+        return salon;
+    }
+    
     /**
      * Metodo que nos permite colocer el nombre del alumno
      * @return alumno
      */
     public String getAlumno(){
         return alumno;
+    }
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Curso)) {
+            return false;
+        }
+        Curso other = (Curso) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
     
 }

@@ -1,37 +1,38 @@
+
+package AlumnoMaestro;
+
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
- * @author Jose Cifuentes
- * @author Javier Carpio
- * @author Oliver Mazariegos
- * @version 29.09.2017
+ *
+ * @author javie
  */
 
-public class Asistencia {
-    
+@Entity
+public class Asistencia implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private String nombre;
     private String curso;
     private String maestro;
     private String fecha;
     
-    /**
-     * Metodo que nos permite crear un objeto de este tipo para relacionarlo con la clase.
-     */
-    public Asistencia()
-    {}
+    public Asistencia(){}
     
-    /**
-     * Metodo que nos permite crear los objetos de las clase Asistencia.
-     * @param Nombre Contiene el nombre del alumno que asistio.
-     * @param Curso Contiene el nombre del curso que asistio.
-     * @param Maestro Contiene el nombre del maestro que imparte el curso.
-     * @param Fecha Contiene la fecha del dia asistido.
-     */
     public Asistencia(String Nombre, String Curso, String Maestro, String Fecha){
         nombre = Nombre;
         curso = Curso;
         maestro = Maestro;
         fecha = Fecha;
         
-    }
+    }    
     
     /**
      * Metodo que nos permite conocer el nombre del alumno.
@@ -64,7 +65,7 @@ public class Asistencia {
     public String getFecha(){
         return fecha;
     }
-
+    
     /**
      * Metodo que nos devuelve los datos concatenados para mostrar al alumno.
      * @return cadena
@@ -83,6 +84,34 @@ public class Asistencia {
     {
         String cadena = "Nombre: " + nombre + ", curso: " + curso + ", fecha: " + fecha;
         return cadena;
+    }
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Asistencia)) {
+            return false;
+        }
+        Asistencia other = (Asistencia) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
     
 }

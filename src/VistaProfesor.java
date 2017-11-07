@@ -1,15 +1,16 @@
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import AlumnoMaestro.Alumno;
+import AlumnoMaestro.Asistencia;
+import AlumnoMaestro.Curso;
+import AlumnoMaestro.Persona;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 /**
  *
@@ -17,19 +18,20 @@ import javax.swing.Timer;
  */
 public class VistaProfesor extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VistaProfesor
-     */
-    ArrayList <Profesor> profesores;
-    public static String curso="";
-    public static ArrayList<Asistencia> asistenciaP;
-    public static ArrayList<Alumnos> alumnos;
+    public static String cursos="";
+    private ArrayList<Persona> personas;
+    private ArrayList<Curso> curso;
+    private ArrayList<Asistencia> asistencia;
+    public static String maestro;
     
     private Timer timer;
     public VistaProfesor() {
         initComponents();
-        profesores=new ArrayList <>();
-        alumnos = new ArrayList<>();
+        personas = new ArrayList<>();
+        curso = new ArrayList<>();
+        asistencia = new ArrayList<>();
+        
+        
     }
 
     /**
@@ -42,23 +44,18 @@ public class VistaProfesor extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        cmbCarnet = new javax.swing.JComboBox();
-        btnBuscar = new javax.swing.JButton();
-        cmbFecha = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        lblCarnet = new javax.swing.JLabel();
-        lblFecha = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton3 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        btnBuscar1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
+        cmbFecha = new javax.swing.JComboBox<String>();
+        cmbCarnet = new javax.swing.JComboBox();
+        lblCarnet = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        lblFecha = new javax.swing.JLabel();
+        btnBuscar2 = new javax.swing.JButton();
 
         jButton2.setText("Actualizar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +64,19 @@ public class VistaProfesor extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -74,15 +84,30 @@ public class VistaProfesor extends javax.swing.JFrame {
             }
         });
 
-        cmbCarnet.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel4.setText("Registro general de asistencias");
 
-        btnBuscar.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar1.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
+        btnBuscar1.setText("Buscar");
+        btnBuscar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+                btnBuscar1ActionPerformed(evt);
             }
         });
+
+        tabla.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabla);
 
         cmbFecha.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
         cmbFecha.addActionListener(new java.awt.event.ActionListener() {
@@ -91,19 +116,10 @@ public class VistaProfesor extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Registro general de asistencias");
+        cmbCarnet.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
 
         lblCarnet.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
         lblCarnet.setText("Carnet:");
-
-        lblFecha.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
-        lblFecha.setText("Fecha:");
-
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
 
         jButton3.setText("Cerrar Sesion");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -112,288 +128,182 @@ public class VistaProfesor extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(485, 485, 485)
-                                .addComponent(btnBuscar)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblCarnet)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(203, 203, 203)
-                                .addComponent(lblFecha)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cmbFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jButton3)
-                .addGap(170, 170, 170)
-                .addComponent(jLabel3)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCarnet)
-                    .addComponent(cmbCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFecha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBuscar)
-                .addContainerGap())
-        );
+        lblFecha.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
+        lblFecha.setText("Fecha:");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel4.setText("Profesor");
-
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
-        jLabel2.setText("Ingrese su contrasena:");
-
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
-
-        jPasswordField1.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
-        jPasswordField1.setText("jPasswordField1");
-
-        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
-        jButton1.setText("INGRESAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar2.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
+        btnBuscar2.setText("Buscar");
+        btnBuscar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBuscar2ActionPerformed(evt);
             }
         });
-
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 21)); // NOI18N
-        jLabel5.setText("Ingrese su usuario:");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jLabel2)
-                .addGap(119, 119, 119)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(117, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(334, 334, 334))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(58, 58, 58)
-                    .addComponent(jLabel5)
-                    .addContainerGap(343, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addComponent(jButton1)
-                .addContainerGap(31, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(60, 60, 60)
-                    .addComponent(jLabel5)
-                    .addContainerGap(166, Short.MAX_VALUE)))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(701, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(207, Short.MAX_VALUE)
+                        .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(207, 207, 207)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(265, 265, 265)
-                                .addComponent(jLabel4))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                            .addComponent(lblFecha)
+                            .addComponent(lblCarnet))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbCarnet, 0, 199, Short.MAX_VALUE)
+                            .addComponent(cmbFecha, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBuscar1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnBuscar2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(185, 185, 185))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(47, 47, 47)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(78, 78, 78)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCarnet)
+                    .addComponent(cmbCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar1))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFecha)
+                    .addComponent(btnBuscar2))
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(76, 76, 76))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+        JTableHeader tableHeader = tabla.getTableHeader();
+        TableColumnModel tableColumnModel = tableHeader.getColumnModel();
+        
+        TableColumn tableColumn = tableColumnModel.getColumn(0);
+        tableColumn.setHeaderValue("Nombre");
+        
+        TableColumn tableColumn1 = tableColumnModel.getColumn(1);
+        tableColumn1.setHeaderValue("Curso");
+        
+        TableColumn tableColumn2 = tableColumnModel.getColumn(2);
+        tableColumn2.setHeaderValue("Alumno");
+        
+        TableColumn tableColumn3 = tableColumnModel.getColumn(3);
+        tableColumn3.setHeaderValue("Fecha");
+        
+        tableHeader.repaint();
+        llenarTabla();
+        llenarCarnets();
+        llenarFechas();
+    }//GEN-LAST:event_formWindowOpened
 
-    public class actualizar implements ActionListener
-    {
-        public void actionPerformed(ActionEvent evt)
-        {
-            
-            jButton2.doClick();
-            cmbCarnet.removeAllItems();
-            for (Asistencia i:asistenciaP) 
-            {
-                if (i.getCurso().equals(curso)) 
-                {
-                    
-                    cmbCarnet.addItem(i.getNombre());
-                    
-                    cmbFecha.removeAllItems();
-                    cmbFecha.addItem(i.getNombre());
-                    
-                }
-            
+    public void llenarTabla(){
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0);
+        
+        for(Asistencia a: asistencia){
+            if(a.getMaestro().equals(maestro)){
+                modelo.addRow(new Object[]{a.getMaestro(), a.getCurso(), a.getNombre(), a.getFecha()});
             }
+            
         }
     }
     
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        lblCarnet.setVisible(false);
-        lblFecha.setVisible(false);
-        btnBuscar.setVisible(false);
-        cmbCarnet.setVisible(false);
-        cmbFecha.setVisible(false);
-        
-        Profesor p= new Profesor();
-        jTextField1.setText("");
-        jPasswordField1.setText("");
-        
-        /*jComboBox1.setVisible(false);
-        jComboBox2.setVisible(false);
-        jComboBox3.setVisible(false);
-        jLabel3.setVisible(false);
-        jTextArea1.setVisible(false);*/
-        jTextArea1.setText("Bienvenido");
-        jPanel2.setVisible(false);
-        
-        profesores=p.crearProfesor(profesores);
-        
-        for(Asistencia x: asistenciaP){
-            if(x.getCurso().equals(curso)){
-                cmbCarnet.addItem(x.getNombre());
-            }
+    public void llenarCarnets(){
+        for(Persona p: personas){
+            if(p instanceof Alumno){
+                cmbCarnet.addItem(p.getCarnet());
+            } 
         }
-        
-        
-         for(Profesor i:profesores)
-         {
-             System.out.println(i.getNombre()+i.getCarnet());
-         }
-        
-         //p.llenarAlumnos(asistenciaP);
-         
-    }//GEN-LAST:event_formWindowOpened
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Profesor p= new Profesor();
-        int control = 0;
-        boolean respuesta = p.IngresarSesion(jTextField1.getText(), jPasswordField1.getText(),profesores);
-        if (respuesta==true) 
-        {
-            
-            /*jPanel2.setVisible(true);
-            jComboBox1.setVisible(true);
-            jComboBox2.setVisible(true);
-            jComboBox3.setVisible(true);
-            System.out.println("Bueno");
-            jPanel1.setVisible(false);
-            jTextArea1.setVisible(true);
-            jLabel3.setVisible(true);
-            jButton2.setVisible(true);*/
-            
-            jPanel1.setVisible(false);
-            jPanel2.setVisible(true);
-            
-            timer=new Timer(1000,new actualizar());
-            timer.start();
-            control++;
-            
-            
-            
-        }
-        if(respuesta == false)
-        {
-            JOptionPane.showMessageDialog(null,"Usuario o contrasena incorrecta");
-        }
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }
     
-    
+    public void llenarFechas(){
+        int a = (int)cmbFecha.getItemCount();
+        System.out.println(a);
+        for(Asistencia as: asistencia){
+            if(cmbFecha.getItemCount() == 0){
+                cmbFecha.addItem(as.getFecha());
+            }else{
+                for(int b = 0; b < cmbFecha.getItemCount(); b++){
+                    if(!cmbFecha.getItemAt(b).equals(as.getFecha())){
+                        cmbFecha.addItem(as.getFecha());
+                    }
+                }
+            } 
+        }
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Profesor p = new Profesor();
-        jTextArea1.setText(p.RegistroGeneral(asistenciaP, curso ));
+        //Profesor p = new Profesor();
+        //jTextArea1.setText(p.RegistroGeneral(asistenciaP, curso ));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void cmbFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFechaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbFechaActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
+        String carnet = (String)cmbCarnet.getSelectedItem();
+        
+        int car = Integer.parseInt(carnet);
+        String nombre = "";
+        
+        for(Persona p: personas){
+            if(p.getCarnet() == car){
+                nombre = p.getNombre() + " " + p.getApellido();
+            } 
+        }
+        
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0);
+        
+        for(Asistencia a: asistencia){
+            if((a.getMaestro().equals(maestro)) && (a.getNombre().equals(nombre))){
+                modelo.addRow(new Object[]{a.getMaestro(), a.getCurso(), a.getNombre(), a.getFecha()});
+            }
+            
+        }
+    }//GEN-LAST:event_btnBuscar1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        this.setVisible(true);
-        jPanel1.setVisible(true);
+        //this.setVisible(false);
+        //this.setVisible(true);
+        /*jPanel1.setVisible(true);
         jPanel2.setVisible(false);
         jTextField1.setText("");
-        jPasswordField1.setText("");
-        timer.stop();
-        jTextArea1.setText("Bienvenido de nuevo");
+        jPasswordField1.setText("");*/
+        //timer.stop();
+        //jTextArea1.setText("Bienvenido de nuevo");
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    
-    public void setLista(ArrayList<Asistencia> x)
-    {
-        asistenciaP=x;
+    private void btnBuscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscar2ActionPerformed
+
+    public void setListas(ArrayList<Persona> p, ArrayList<Asistencia> a, ArrayList<Curso> c){
+        personas = p;
+        curso = c;
+        asistencia = a;
     }
     /**
      * @param args the command line arguments
@@ -431,23 +341,18 @@ public class VistaProfesor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscar1;
+    private javax.swing.JButton btnBuscar2;
     public static javax.swing.JComboBox cmbCarnet;
     public static javax.swing.JComboBox<String> cmbFecha;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblCarnet;
     private javax.swing.JLabel lblFecha;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }
