@@ -1,77 +1,46 @@
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
+import AlumnoMaestro.Alumno;
+import AlumnoMaestro.Asistencia;
+import AlumnoMaestro.BaseDatos;
+import AlumnoMaestro.Curso;
+import AlumnoMaestro.Maestro;
+import AlumnoMaestro.Persona;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
->>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
-=======
->>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
  * @author javie
  */
 public class InicioSesion extends javax.swing.JFrame {
-
-    /**
-     * Creates new form InicioSesion
-     */
-<<<<<<< HEAD
-<<<<<<< HEAD
+            
+    private ArrayList<Persona> personas;
+    private ArrayList<Curso> curso;
+    private ArrayList<Asistencia> asistencia;
     
-    public static ArrayList<Alumnos> alumno;
-=======
-    private ArrayList<String> correos;
-    private ArrayList<String> contrasena;
-    private ArrayList<String> nombres;
-    private ArrayList<String> apellidos;
-    private ArrayList<String> carnet;
-    public String nombre;
-    public String apellido;
-    public String carnets;
-    public String contras;
-    public String corr;
-    public String FuenteN;
-    public String FuenteA;
-    public String FuenteC;
-    public String FuenteCor;
-    
-    
->>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
-    public InicioSesion() {
-        initComponents();
-<<<<<<< HEAD
-        alumno = new ArrayList<Alumnos>();
-=======
-        nombres = new ArrayList<String>();
-        apellidos = new ArrayList<String>();
-        carnet = new ArrayList<String>();
-        contrasena = new ArrayList<String>();
-        correos = new ArrayList<String>();
-        
->>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
-=======
-    
-    public static ArrayList<Alumnos> alumno;
-    public static ArrayList<Cursos> CURSO;
-    public static ArrayList<Asistencia> ASISTENCIA;
     public static int control=0;
+    
     public InicioSesion() {
         initComponents();
-        alumno = new ArrayList<>();
-        CURSO = new ArrayList<>();
-        ASISTENCIA = new ArrayList<>();
->>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+        personas = new ArrayList<>();
+        curso = new ArrayList<>();
+        asistencia = new ArrayList<>();
+        
+        BaseDatos db = new BaseDatos();
+        
+        for(Persona p: db.recuperarPersonas()){
+            personas.add(p);
+        }
+        for(Curso c: db.recuperarCursos()){
+            curso.add(c);
+        }
+        for(Asistencia a: db.recuperarAsistencia()){
+            asistencia.add(a);
+        }
+        
     }
 
     /**
@@ -83,7 +52,6 @@ public class InicioSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -91,9 +59,16 @@ public class InicioSesion extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 <<<<<<< HEAD
+        lblProf = new javax.swing.JLabel();
+        cmbProf = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
+        spnCarnet = new javax.swing.JSpinner();
+=======
+<<<<<<< HEAD
 =======
         jLabel3 = new javax.swing.JLabel();
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -101,8 +76,6 @@ public class InicioSesion extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 
         jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 <<<<<<< HEAD
@@ -119,7 +92,7 @@ public class InicioSesion extends javax.swing.JFrame {
         jLabel1.setText("Contrasena");
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel2.setText("Carnet");
+        jLabel2.setText("Seleccione:");
 
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
@@ -145,8 +118,21 @@ public class InicioSesion extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel3.setText("Estudiante");
+        lblProf.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblProf.setText("Estudiante");
+
+        cmbProf.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        cmbProf.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Estudiante", "Maestro" }));
+        cmbProf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbProfActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel4.setText("Carnet");
+
+        spnCarnet.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,23 +161,44 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addGap(104, 104, 104))
 =======
             .addGroup(layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addGap(115, 115, 115)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(135, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(124, 124, 124)
+                            .addComponent(spnCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(116, 116, 116)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(155, 155, 155)
+                            .addComponent(jLabel1)
+                            .addGap(29, 29, 29)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jButton2)
+                        .addGap(115, 115, 115)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(256, 256, 256)
+                        .addComponent(lblProf)))
+                .addContainerGap(134, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(104, 104, 104))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(jLabel2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(104, 104, 104))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(43, 43, 43)
+                        .addComponent(cmbProf, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(126, 126, 126))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(165, 165, 165)
+                    .addComponent(jLabel4)
+                    .addContainerGap(462, Short.MAX_VALUE)))
+=======
                     .addGroup(layout.createSequentialGroup()
 <<<<<<< HEAD
                         .addContainerGap()
@@ -222,10 +229,16 @@ public class InicioSesion extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(147, 147, 147))))
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+                .addGap(72, 72, 72)
+                .addComponent(lblProf)
+                .addGap(66, 66, 66)
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
                 .addGap(232, 232, 232)
@@ -252,14 +265,17 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(105, 105, 105)
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(cmbProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
+                .addGap(95, 95, 95)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(153, 153, 153)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(103, 103, 103)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 <<<<<<< HEAD
                     .addComponent(btnNuevo)
@@ -269,10 +285,18 @@ public class InicioSesion extends javax.swing.JFrame {
 =======
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addContainerGap())
+<<<<<<< HEAD
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(319, 319, 319)
+                    .addComponent(jLabel4)
+                    .addContainerGap(341, Short.MAX_VALUE)))
+=======
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
         );
 
         pack();
@@ -281,13 +305,18 @@ public class InicioSesion extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         NuevoAlumno nuevo = new NuevoAlumno();
 <<<<<<< HEAD
+        
+        nuevo.setListas(personas, asistencia, curso);
+        
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
         nuevo.setLista(alumno);
         nuevo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         String cadena = "";
         
         for(Alumnos x: alumno){
@@ -295,9 +324,9 @@ public class InicioSesion extends javax.swing.JFrame {
         }
         
         System.out.println(cadena);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }                                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         Menu menu = new Menu();
         
         
@@ -322,15 +351,22 @@ public class InicioSesion extends javax.swing.JFrame {
         nuevo.setLista(alumno);
         nuevo.controlNA=control;
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
         nuevo.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }                                        
 
+    public void setListas(ArrayList<Persona> p, ArrayList<Asistencia> a, ArrayList<Curso> c){
+        personas = p;
+        curso = c;
+        asistencia = a;
+    }
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String cadena = "";
         
-        for(Alumnos x: alumno){
-            cadena += x.toStringNAC() + "\n";
+        for(Persona x: personas){
+            cadena += x.toString() + "\n";
         }
         
         System.out.println(cadena);
@@ -338,8 +374,51 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Menu menu = new Menu();
+        VistaProfesor vp = new VistaProfesor();
         
+        String nombre = "";
+        String maestro = "";
         
+<<<<<<< HEAD
+        String op = (String)cmbProf.getSelectedItem();
+        int car = (int)spnCarnet.getValue();
+        String contr = (String)jTextField2.getText();
+        boolean siguiente = true;
+        int control1 = 0;
+        
+        if((!jTextField2.getText().equals(""))){
+            
+            switch (op){
+                case "Estudiante":
+                    for(Persona p: personas){
+                        if((p.getCarnet() == car) && (p.getContrasena().equals(contr))){
+                            siguiente = true;
+                            if(p instanceof Alumno){
+                                control1 = 1;
+                                nombre = p.getNombre() + " " + p.getApellido();
+                            }
+                            break;
+                        }else{
+                            siguiente = false;
+                        }
+                    }
+                    break;
+                    
+                case "Maestro":
+                    for(Persona p: personas){
+                        if((p.getCarnet() == car) && (p.getContrasena().equals(contr))){
+                            siguiente = true;
+                            if(p instanceof Maestro){
+                                control1 = 2;
+                                maestro = p.getNombre() + " " + p.getApellido();
+                            }
+                            break;
+                        }else{
+                            siguiente = false;
+                        }
+                    }
+                    break;
+=======
         for(Alumnos j: alumno)
         {
             if((j.getCarnet().equals(jTextField1.getText())) && (j.getContrasena().equals(jTextField2.getText())))
@@ -377,20 +456,39 @@ public class InicioSesion extends javax.swing.JFrame {
 
             
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
             }
-           
         }
         
+<<<<<<< HEAD
+        if(siguiente == true){
+            
+            if(control1 == 1){
+                Menu.nombre = nombre;
+                menu.setListas(personas, asistencia, curso);
+                menu.setVisible(true);
+                this.setVisible(false);
+            }else if(control1 == 2){
+                VistaProfesor.maestro = maestro;
+                vp.setListas(personas, asistencia, curso);
+                vp.setVisible(true);
+                this.setVisible(false);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Error 101. Ingrese correctamente los datos.");
+        } 
+        
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
         // TODO add your handling code here:
         jButton3.setVisible(false);
-    }//GEN-LAST:event_formWindowOpened
+    }                                 
 
 =======
         if(nombres.isEmpty()){
@@ -398,11 +496,15 @@ public class InicioSesion extends javax.swing.JFrame {
         }
 =======
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    }                                        
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+<<<<<<< HEAD
+=======
         // TODO add your handling code here:
         VistaProfesor vp= new VistaProfesor();
         
@@ -419,11 +521,25 @@ public class InicioSesion extends javax.swing.JFrame {
     
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
 =======
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
         
         jButton3.setVisible(false);
     }//GEN-LAST:event_formWindowOpened
 
+<<<<<<< HEAD
+    private void cmbProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProfActionPerformed
+        String op = (String)cmbProf.getSelectedItem();
+        
+        if(op.equals("Estudiante")){
+            lblProf.setText("Estudiante");
+        }else{
+            lblProf.setText("Maestro");
+        }
+    }//GEN-LAST:event_cmbProfActionPerformed
+
+=======
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
     /**
      * @param args the command line arguments
      */
@@ -460,16 +576,23 @@ public class InicioSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cmbProf;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
 <<<<<<< HEAD
+    private javax.swing.JLabel jLabel4;
+=======
+<<<<<<< HEAD
 =======
     private javax.swing.JLabel jLabel3;
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     private javax.swing.JTextField jTextField1;
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel lblProf;
+    private javax.swing.JSpinner spnCarnet;
     // End of variables declaration//GEN-END:variables
 }

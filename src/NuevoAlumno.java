@@ -1,5 +1,11 @@
 
 <<<<<<< HEAD
+import AlumnoMaestro.Asistencia;
+import AlumnoMaestro.BaseDatos;
+import AlumnoMaestro.Curso;
+import AlumnoMaestro.Persona;
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 import java.util.ArrayList;
 
@@ -13,6 +19,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 =======
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
@@ -22,6 +29,20 @@ import javax.swing.JOptionPane;
  * @author javie
  */
 public class NuevoAlumno extends javax.swing.JFrame {
+<<<<<<< HEAD
+   
+    
+    private ArrayList<Persona> personas;
+    private ArrayList<Curso> curso;
+    private ArrayList<Asistencia> asistencia;
+    
+    public NuevoAlumno() {
+        initComponents();
+        
+        personas = new ArrayList<>();
+        curso = new ArrayList<>();
+        asistencia = new ArrayList<>();
+=======
 
     /**
      * Creates new form NuevoAlumno
@@ -66,6 +87,7 @@ public class NuevoAlumno extends javax.swing.JFrame {
     public NuevoAlumno() {
         initComponents();
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
     }
 
     /**
@@ -78,14 +100,17 @@ public class NuevoAlumno extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtContra = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtCorreo = new javax.swing.JTextField();
+        spnCarnet = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,11 +142,9 @@ public class NuevoAlumno extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-
-        jTextField3.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        txtContra.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel1.setText("Nombre");
@@ -132,10 +155,21 @@ public class NuevoAlumno extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel3.setText("Contrasena");
 
-        jTextField4.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        txtApellido.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel4.setText("Apellido");
+
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        jLabel5.setText("Nuevo alumno");
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel6.setText("Correo");
+
+        txtCorreo.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+
+        spnCarnet.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        spnCarnet.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99999, 1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,8 +182,36 @@ public class NuevoAlumno extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(85, 85, 85))
             .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(249, 249, 249)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(87, 87, 87)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(116, 116, 116)
+                                        .addComponent(spnCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(178, Short.MAX_VALUE))
+=======
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -207,10 +269,32 @@ public class NuevoAlumno extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(179, Short.MAX_VALUE))
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+<<<<<<< HEAD
+                .addGap(36, 36, 36)
+                .addComponent(jLabel5)
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel4)
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(spnCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
                 .addGap(124, 124, 124)
@@ -265,8 +349,13 @@ public class NuevoAlumno extends javax.swing.JFrame {
 >>>>>>> 8bbfc43181bc3e18c8646f0239aa56a61d3db721
 =======
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
                     .addComponent(jLabel3))
-                .addGap(47, 47, 47)
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(95, 95, 95))
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
@@ -298,26 +387,33 @@ public class NuevoAlumno extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         
-        if((jTextField1.getText().equals("")) || (jTextField2.getText().equals("")) || (jTextField3.getText().equals("")) || (jTextField4.getText().equals(""))){
+        int car = (int)spnCarnet.getValue();
+        
+        if((txtCorreo.getText().equals("")) || (txtNombre.getText().equals("")) || (txtContra.getText().equals("")) || (txtApellido.getText().equals(""))){
             JOptionPane.showMessageDialog(this, "Llene todos los campos.");
         }else{
-            //Profesor p = new Profesor();
             
+            BaseDatos db = new BaseDatos();
             
-            Alumnos alum = new Alumnos(jTextField1.getText(), jTextField4.getText(), jTextField2.getText(), jTextField3.getText());
+            personas.add(db.agregarAlumno(txtNombre.getText(), txtApellido.getText(), car, txtContra.getText(), txtCorreo.getText()));
+            
+            JOptionPane.showMessageDialog(this, "Se ha guardado con exito.");
             InicioSesion inicio = new InicioSesion();
             
-            Alumno.add(alum);
+            inicio.setListas(personas, asistencia, curso);
             
-            
-            InicioSesion.alumno = (Alumno);
-            InicioSesion.ASISTENCIA = (ASISTENCIA);
-            InicioSesion.CURSO = (CURSO);
-            VistaProfesor.alumnos = Alumno;
             inicio.setVisible(true);
-            inicio.control=controlNA;
             this.setVisible(false);
             
+<<<<<<< HEAD
+        } 
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void setListas(ArrayList<Persona> p, ArrayList<Asistencia> a, ArrayList<Curso> c){
+        personas = p;
+        curso = c;
+        asistencia = a;
+=======
         }
         
         
@@ -358,6 +454,7 @@ public class NuevoAlumno extends javax.swing.JFrame {
     public void setLista(ArrayList list){
         Alumno = list;
 >>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
+>>>>>>> d2008b9f5b613cbc902d12597c619e5cb1e7376f
     }
     
     /**
@@ -401,9 +498,12 @@ public class NuevoAlumno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JSpinner spnCarnet;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtContra;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

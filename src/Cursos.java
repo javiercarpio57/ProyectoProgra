@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author javie
- */
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-=======
 /**
  * @author Jose Cifuentes
  * @author Javier Carpio
@@ -22,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
->>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
 import java.util.Date;
 
 public class Cursos {
@@ -30,16 +15,6 @@ public class Cursos {
     private String maestro;
     private String salon;
     private String fecha;    
-<<<<<<< HEAD
-    private Date myDate = new Date();
-    
-    public Cursos(){
-       
-        
-    }
-    
-    public Cursos(String cursito, String Maestro, String Salon){
-=======
     private String alumno;
     private Date myDate = new Date();
     
@@ -58,16 +33,10 @@ public class Cursos {
      * @param nom Contiene el nombre del alumno.
      */
     public Cursos(String cursito, String Maestro, String Salon, String nom){
->>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
         curso = cursito;
         maestro = Maestro;
         salon = Salon;
         fecha=new SimpleDateFormat("dd-MM-yyyy").format(myDate);
-<<<<<<< HEAD
-        
-    }
-    
-=======
         alumno = nom;
     }
     
@@ -75,29 +44,18 @@ public class Cursos {
      * Metodo que nos permite conocer el nombre del curso.
      * @return curso
      */
->>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     public String getCurso(){
         return curso;
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Metodo que nos permite indicar el nombre del curso, salon y fecha.
      * @return cadena
      */
->>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     @Override
     public String toString() {
         String cadena;
         
-<<<<<<< HEAD
-        cadena = (curso + " " + salon+" "+"<html><b><u> Fecha de asistencia "+fecha+"</u></b>");
-        return cadena;
-    }
-    
-    
-=======
         cadena = "CURSOS: " + (curso + " " + salon+" "+ fecha);
         return cadena;
     }
@@ -117,6 +75,5 @@ public class Cursos {
     public String getAlumno(){
         return alumno;
     }
->>>>>>> 65e049850fce1cb7d392717e388b1a94b6407f80
     
 }

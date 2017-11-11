@@ -1,5 +1,12 @@
 
+import AlumnoMaestro.Asistencia;
+import AlumnoMaestro.Curso;
+import AlumnoMaestro.Persona;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -7,21 +14,17 @@ import java.util.ArrayList;
  */
 public class VerRegistro extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VerRegistro
-     */
-    public static ArrayList<Cursos> Curso;
-    public static ArrayList<Asistencia> Asistencia;
-    public static ArrayList<Alumnos> Alumno;
+    private ArrayList<Persona> personas;
+    private ArrayList<Curso> curso;
+    private ArrayList<Asistencia> asistencia;
     public static String nombre;
     public static int controlV=0;
     
     public VerRegistro() {
         initComponents();
-        Curso = new ArrayList<>();
-        Asistencia = new ArrayList<>();
-        Alumno = new ArrayList<>();
-        nombre="";
+        personas = new ArrayList<>();
+        curso = new ArrayList<>();
+        asistencia = new ArrayList<>();
     }
 
     /**
@@ -35,8 +38,8 @@ public class VerRegistro extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -56,11 +59,18 @@ public class VerRegistro extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,16 +84,16 @@ public class VerRegistro extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(90, 90, 90)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(24, 24, 24))
         );
@@ -92,32 +102,53 @@ public class VerRegistro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        String concatenar= "";
-        //jLabel2.setText(nombre+" ha tomado asistencia de las siguientes clases:");
-        for (Cursos j:Curso) 
-        {
-            if(j.getAlumno().equals(nombre)){
-                concatenar+=nombre+"----"+j.toString()+"\n";
+        
+        
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        JTableHeader tableHeader = tabla.getTableHeader();
+        TableColumnModel tableColumnModel = tableHeader.getColumnModel();
+        
+        TableColumn tableColumn = tableColumnModel.getColumn(0);
+        tableColumn.setHeaderValue("Nombre");
+        
+        TableColumn tableColumn1 = tableColumnModel.getColumn(1);
+        tableColumn1.setHeaderValue("Curso");
+        
+        TableColumn tableColumn2 = tableColumnModel.getColumn(2);
+        tableColumn2.setHeaderValue("Salon");
+        
+        TableColumn tableColumn3 = tableColumnModel.getColumn(3);
+        tableColumn3.setHeaderValue("Fecha");
+        
+        tableHeader.repaint();
+        
+        modelo.setRowCount(0);
+        
+        for(Curso c: curso){
+            if(c.getAlumno().equals(nombre)){
+                modelo.addRow(new Object[]{c.getAlumno(), c.getCurso(), c.getSalon(), c.getFecha()});
             }
+            
         }
-        jTextArea1.setText(concatenar);
+        
         
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Menu men = new Menu();
-        Menu.NOMBRE=nombre;
-        Menu.CURSO=Curso;
-        Menu.ALUMNOS=Alumno;
-        Menu.ASISTENCIA=Asistencia;
-        men.controlM=controlV;
+        men.setListas(personas, asistencia, curso);
         
         men.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public void setListas(ArrayList<Persona> p, ArrayList<Asistencia> a, ArrayList<Curso> c){
+        personas = p;
+        curso = c;
+        asistencia = a;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -156,7 +187,7 @@ public class VerRegistro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }

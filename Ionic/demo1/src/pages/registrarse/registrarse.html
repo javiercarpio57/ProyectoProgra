@@ -15,15 +15,17 @@
     
     <ion-item>
       <ion-label floating>Usuario</ion-label>
-        <ion-input type="text" value=""  id="usuario"></ion-input>
+        <ion-input type="text" value=""  [(ngModel)]="usuario"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating>Contraseña</ion-label>
-        <ion-input type="password" id="contra"></ion-input>
+        <ion-input type="password" [(ngModel)]="contra"></ion-input>
       </ion-item>
+      {{ usuario }}
+      {{ contra }}
 
-      <button ion-button block color="secondary" class="margen" (click)="registrarse()">Registrarse</button>
+      <button ion-button block color="secondary" class="margen" (click)="registrarse(usuario,contra)">Registrarse</button>
       
 
 

@@ -121,7 +121,7 @@ public class Profesor
      * @param curso Contiene el nombre del curso impartido.
      * @return concatenar.
      */
-    public String RegistroGeneral(ArrayList<Asistencia> x,String curso )
+    /*public String RegistroGeneral(ArrayList<Asistencia> x,String curso )
         {
             String concatenar="";
             
@@ -145,5 +145,5 @@ public class Profesor
             
             return concatenar;
         
-        }
+        }*/
 }

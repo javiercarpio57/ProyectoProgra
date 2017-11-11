@@ -11,8 +11,11 @@ import { AngularFireAuth } from 'angularfire2/auth';
   selector: 'page-registrarse',
   templateUrl: 'registrarse.html',
 })
+
+
 export class RegistrarsePage {
 
+  
   constructor(private fire: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -21,15 +24,14 @@ export class RegistrarsePage {
   }
 
   //metodo cuando se registram
-  registrarse()
+  
+
+
+
+  registrarse(usuario,contra)
   {
     
-    let usuario : string =(<HTMLInputElement>document.getElementById("usuario")).value
-    //var usuario =document.getElementById("usuario");
-    var contra =document.getElementById("contra");
-    
-
-    this.fire.auth.createUserWithEmailAndPassword(usuario,"contra")
+    this.fire.auth.createUserWithEmailAndPassword(usuario,contra)
     
 
     .then(data=>{
