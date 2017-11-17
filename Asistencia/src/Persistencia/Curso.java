@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *
- * @author javie
+ * @author Jose Cifuentes
+ * @author Javier Carpio
+ * @author Oliver Mazariegos
+ * @version 15.11.2017
  */
 @Entity
 public class Curso implements Serializable {
@@ -24,6 +26,14 @@ public class Curso implements Serializable {
     private String alumno;
     private String fecha;
 
+    /**
+     * Constructor que nos permite crear un objeto de curso.
+     * @param maestro Nombre del maestro.
+     * @param nombre Nombre del curso.
+     * @param salon Salon del curso.
+     * @param alumno Nombre del alumno.
+     * @param fecha Fecha donde se impartio el curso.
+     */
     public Curso(String maestro, String nombre, String salon, String alumno, String fecha) {
         this.maestro = maestro;
         this.nombre = nombre;
@@ -32,26 +42,49 @@ public class Curso implements Serializable {
         this.fecha = fecha;
     }
     
+    /**
+     * Constructor que conecta con la base de datos.
+     */
     public Curso(){
         
     }
 
+    /**
+     * Metodo que nos permite conocer el nombre del maestro.
+     * @return maestro
+     */
     public String getMaestro() {
         return maestro;
     }
 
+    /**
+     * Metodo que nos permite conocer el nombre del curso.
+     * @return nombre del curso
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Metodo que nos permite conocer el lugar.
+     * @return salon
+     */
     public String getSalon() {
         return salon;
     }
 
+    /**
+     * Metodo que nos permite conocer el nombre del alumno.
+     * @return alumno
+     */
     public String getAlumno() {
         return alumno;
     }
 
+    /**
+     * Metodo que nos permite conocer la fecha que asistio la persona.
+     * @return fecha
+     */
     public String getFecha() {
         return fecha;
     }

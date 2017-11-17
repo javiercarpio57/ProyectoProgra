@@ -9,8 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *
- * @author javie
+ * @author Jose Cifuentes
+ * @author Javier Carpio
+ * @author Oliver Mazariegos
+ * @version 15.11.2017
  */
 @Entity
 public class Estudiante extends Persona implements Serializable {
@@ -24,6 +26,16 @@ public class Estudiante extends Persona implements Serializable {
     private String pregunta;
     private String respuesta;
 
+    /**
+     * Constructor que nos permite crear el objeto Estudiante.
+     * @param correo Correo del estudiante.
+     * @param n Nombre del estudiante.
+     * @param a Apellido del estudiante.
+     * @param car Carnet del estudiante.
+     * @param contra Contrasena del estudiante.
+     * @param pregunta Pregunta de seguridad del estudiante.
+     * @param respuesta Respuesta a la pregunta de seguridad del estudiante.
+     */
     public Estudiante(String correo, String n, String a, int car, String contra, String pregunta, String respuesta) {
         super(n, a, car, contra);
         this.correo = correo;
@@ -31,19 +43,34 @@ public class Estudiante extends Persona implements Serializable {
         this.respuesta = respuesta;
     }
     
+    /**
+     * Constructor que nos permite concectar con base de datos.
+     */
     public Estudiante(){
         
     }
 
+    /**
+     * Metodo que nos permite conocer el correo del estudiante.
+     * @return correo
+     */
     public String getCorreo() {
         return correo;
     }
 
+    /**
+     * Metodo que nos permite conocer la pregunta de seguridad.
+     * @return pregunta
+     */
     @Override
     public String getPregunta() {
         return pregunta;
     }
 
+    /**
+     * Metodo que nos permite conocer la respuesta a la pregunta de seguridad.
+     * @return respuesta
+     */
     @Override
     public String getRespuesta() {
         return respuesta;

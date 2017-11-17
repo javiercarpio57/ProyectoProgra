@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *
- * @author javie
+ * @author Jose Cifuentes
+ * @author Javier Carpio
+ * @author Oliver Mazariegos
+ * @version 15.11.2017
  */
 @Entity
 public class Asistencia implements Serializable {
@@ -23,6 +25,13 @@ public class Asistencia implements Serializable {
     private String maestro;
     private String fecha;
 
+    /**
+     * Constructor que nos permite crear el objeto Asistencia.
+     * @param curso Nombre del curso al que se le tomo asistencia.
+     * @param alumno Nombre del alumno que se tomo asistencia.
+     * @param maestro Nombre del maestro que imparte el curso.
+     * @param fecha Fecha en la que se asisttio a clase.
+     */
     public Asistencia(String curso, String alumno, String maestro, String fecha) {
         this.curso = curso;
         this.alumno = alumno;
@@ -30,27 +39,44 @@ public class Asistencia implements Serializable {
         this.fecha = fecha;
     }
     
+    /**
+     * Constructor que nos permite conectar con base de datos.
+     */
     public Asistencia(){
         
     }
 
+    /**
+     * Metodo que nos permite conocer el nombre del curso que se asistio.
+     * @return curso
+     */
     public String getCurso() {
         return curso;
     }
-
+    
+    /**
+     * Metodo que nos permite conocer el nombre del alumno que tomo asistencia.
+     * @return alumno
+     */
     public String getAlumno() {
         return alumno;
     }
 
+    /**
+     * Metodo que nos permite conocer el nombre del maestro que impartia el curso.
+     * @return maestro
+     */
     public String getMaestro() {
         return maestro;
     }
 
+    /**
+     * Metodo que nos permite conocer la fecha que se asistio.
+     * @return fecha
+     */
     public String getFecha() {
         return fecha;
     }
-    
-    
     
     public Long getId() {
         return id;

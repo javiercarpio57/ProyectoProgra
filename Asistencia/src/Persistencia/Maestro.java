@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *
- * @author javie
+ * @author Jose Cifuentes
+ * @author Javier Carpio
+ * @author Oliver Mazariegos
+ * @version 15.11.2017
  */
 @Entity
 public class Maestro extends Persona implements Serializable {
@@ -20,16 +22,31 @@ public class Maestro extends Persona implements Serializable {
 
     private String curso;
 
+    /**
+     * Constructor que nos permite crear el objeto Maestro.
+     * @param curso Contiene el curso impartido por el maestro.
+     * @param n Contiene el nombre del maestro.
+     * @param a Apellido del maestro.
+     * @param car Carnet del maestro.
+     * @param contra Contrasena del maestro.
+     */
     public Maestro(String curso, String n, String a, int car, String contra) {
         super(n, a, car, contra);
         this.curso = curso;
     }
     
+    /**
+     * Constructor que nos conecta con la base de datos.
+     */
     public Maestro(){
         super("", "", 0, "");
         curso = "";
     }
 
+    /**
+     * Metodo que nos permite conocer el curso del maestro.
+     * @return curso
+     */
     @Override
     public String getCurso() {
         return curso;
