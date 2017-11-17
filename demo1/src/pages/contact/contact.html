@@ -1,0 +1,70 @@
+
+
+<ion-content>
+  <ion-list>
+    
+    <ion-item>
+      <ion-label>Ingrese los cursos del día viernes</ion-label>
+      
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>1er. Período</ion-label>
+      <ion-select [(ngModel)]="curso1">
+        <ion-option value="calc70">Calculo 1 Secc70</ion-option>
+        <ion-option value="progra10">POO Secc10</ion-option>
+        <ion-option value="progra11">POO Secc11</ion-option>
+        <ion-option value="null">Libre</ion-option>
+      </ion-select>
+    </ion-item>
+    
+
+    <ion-item>
+      <ion-label>2do. Período</ion-label>
+      <ion-select [(ngModel)]="curso2">
+        <ion-option value="calc70">Calculo 1 Secc70</ion-option>
+        <ion-option value="progra10">POO Secc10</ion-option>
+        <ion-option value="progra11">POO Secc11</ion-option>
+        <ion-option value="null">Libre</ion-option>
+      </ion-select>
+    </ion-item>
+    
+
+    <ion-item>
+      <ion-label>3ro. Período</ion-label>
+      <ion-select [(ngModel)]="curso3">
+        <ion-option value="calc70">Calculo 1 Secc70</ion-option>
+        <ion-option value="progra10">POO Secc10</ion-option>
+        <ion-option value="progra11">POO Secc11</ion-option>
+        <ion-option value="null">Libre</ion-option>
+      </ion-select>
+    </ion-item>
+    
+
+    <ion-item>
+      <ion-label>4to. Período</ion-label>
+      <ion-select [(ngModel)]="curso4">
+        <ion-option value="calc70">Calculo 1 Secc70</ion-option>
+        <ion-option value="progra10">POO Secc10</ion-option>
+        <ion-option value="progra11">POO Secc11</ion-option>
+        <ion-option value="null">Libre</ion-option>
+      </ion-select>
+    </ion-item>
+    
+
+    <ion-item>
+      <ion-label>5to. Período</ion-label>
+      <ion-select [(ngModel)]="curso5">
+        <ion-option value="calc70">Calculo 1 Secc70</ion-option>
+        <ion-option value="progra10">POO Secc10</ion-option>
+        <ion-option value="progra11">POO Secc11</ion-option>
+        <ion-option value="null">Libre</ion-option>
+      </ion-select>
+    </ion-item>
+    
+
+
+    <button ion-button block color="secondary" class="margen" (click)="addHorario(curso1,curso2,curso3,curso4,curso5)">Aceptar</button>
+    
+  </ion-list>
+</ion-content>
